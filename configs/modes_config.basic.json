@@ -1,0 +1,236 @@
+{
+	"modes": {
+		"0": {
+			"type": "SystemInformation",
+			"refresh_hz": 2.0,
+			"show_seconds": false
+		},
+		"1": {
+			"type": "blinkenlights",
+			"computer_name": "PDP-25/64",
+			"led_color": "Red",
+			"columns": 2,
+			"registers_per_column": 14,
+			"register_labels": [
+				"CLK",
+				"IPTR",
+				"ACC",
+				"IR",
+				"SP",
+				"TMP",
+				"SCL",
+				"PF3",
+				"VECT",
+				"HOLD",
+				"PAGE",
+				"SEMA",
+				"SENS",
+				"EXEC",
+				"MAR",
+				"MDR",
+				"PC",
+				"FLGS",
+				"ALU",
+				"IO",
+				"ACT",
+				"NOML",
+				"NODE",
+				"SYNC",
+				"MMIO",
+				"CTRL",
+				"ALU",
+				"PIPE"
+			],
+			"title_font_scale": 0.10,
+			"label_font_scale": 0.03,
+			"led_radius_scale": 0.016,
+			"pulse_speed": 2.3,
+			"burst_probability_per_sec": 0.25,
+			"burst_duration_range": [
+				0.6,
+				1.4
+			],
+			"burst_registers_range": [
+				1,
+				3
+			],
+			"burst_strength": 1.8
+		},
+		"2": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart1",
+			"duration": 120
+		},
+		"3": {
+		"type": "galacticnavigation",
+		"sector_name": "SECTOR: VELA-IX",
+		"waypoint_count": 7,
+		"star_count": 260,
+		"refresh_hz": 60,
+		"accent_rgb": [80, 200, 255],
+		"grid_alpha": 70,
+		"scanline_alpha": 18,
+		"jump_interval_sec": 14.0
+		},
+		"4": {
+		"type": "galacticnavigation",
+		"sector_name": "SECTOR: ORION SPUR",
+		"seed": 42,
+		"waypoint_labels": ["AURIGA GATE", "K-DELTA RELAY", "MORPHEUS ANCHOR", "LAGRANGE-7"],
+		"accent_rgb": [180, 255, 140],
+		"grid_alpha": 55,
+		"scanline_alpha": 10,
+		"jump_interval_sec": 22.0
+		},		
+		"13": {
+			"type": "headlinesnews",
+			"feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+			"image_folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart1",
+			"text_position": "bottom",
+			"duration": 60,
+			"overlay_alpha": 120
+		},
+		"14": {
+			"type": "headlinesnews",
+			"feed_url": "https://www.theonion.com/rss",
+			"image_folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart1",
+			"text_position": "bottom",
+			"duration": 60,
+			"overlay_alpha": 120
+		},
+		"15": {
+			"type": "headlinesnews",
+			"feed_url": "https://www.atlasobscura.com/feeds/latest",
+			"image_folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart1",
+			"text_position": "bottom",
+			"duration": 60,
+			"overlay_alpha": 120
+		},
+		"16": {
+			"type": "quotegenerator",
+			"theme": "Motivational",
+			"duration": 45,
+			"image_path": "/home/ubuntu/narrow_slideshow/vert_images/cyberart1/vert7_00007_.png",
+			"text_position": "top",
+			"font_size": 84
+		},
+		"17": {
+			"type": "StatusTicker",
+			"file": "/home/ubuntu/narrow_slideshow/mode_manager/boot_ticker_hal9000.txt",
+			"pause": 3.5,
+			"scroll_px_per_sec": 160,
+			"cursor_blink_hz": 2.0,
+			"accent_probability": 0.35,
+			"blank_lines_between_loops": 20
+		},
+		"18": {
+			"type": "StatusTicker",
+			"file": "/home/ubuntu/narrow_slideshow/mode_manager/boot_ticker.txt",
+			"pause": 3.5,
+			"scroll_px_per_sec": 160,
+			"cursor_blink_hz": 2.0,
+			"accent_probability": 0.35,
+			"blank_lines_between_loops": 20
+		},
+		"19": {
+			"type": "slideshow",
+			"name": "Cityscapes",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk1",
+			"duration": 120
+		},
+		"20": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk3",
+			"duration": 60
+		},
+		"21": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk4",
+			"duration": 60
+		},
+		"22": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk5",
+			"duration": 60
+		},
+		"23": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/pastorial",
+			"duration": 60
+		},
+		"24": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/posters",
+			"duration": 60
+		},
+		"25": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/posters/japanese",
+			"duration": 60
+		},
+		"26": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/misc",
+			"duration": 60
+		},
+		"27": {
+			"type": "blinkenlights",
+			"computer_name": "Vesperion Loom",
+			"led_color": "Green",
+			"columns": 2,
+			"registers_per_column": 14,
+			"register_labels": [
+				"CLK",
+				"IPTR",
+				"ACC",
+				"IR",
+				"SP",
+				"TMP",
+				"SCL",
+				"PF3",
+				"VECT",
+				"HOLD",
+				"PAGE",
+				"SEMA",
+				"SENS",
+				"EXEC",
+				"MAR",
+				"MDR",
+				"PC",
+				"FLGS",
+				"ALU",
+				"IO",
+				"ACT",
+				"NOML",
+				"NODE",
+				"SYNC",
+				"MMIO",
+				"CTRL",
+				"ALU",
+				"PIPE"
+			],
+			"title_font_scale": 0.10,
+			"label_font_scale": 0.03,
+			"led_radius_scale": 0.016,
+			"pulse_speed": 2.3,
+			"burst_probability_per_sec": 0.25,
+			"burst_duration_range": [
+				0.6,
+				1.4
+			],
+			"burst_registers_range": [
+				1,
+				3
+			],
+			"burst_strength": 1.8
+		}
+	}
+}

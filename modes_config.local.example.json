@@ -1,0 +1,7 @@
+{
+  "modes": {
+    "0": {
+      "folder": "/absolute/path/to/your/images"
+    }
+  }
+}

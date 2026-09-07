@@ -1,0 +1,179 @@
+{
+  "modes": {
+    "1": {
+      "type": "slideshow",
+      "title": "Wide Slideshow",
+      "duration": 12,
+      "show_time": true,
+      "show_date": false,
+      "font_size": 28,
+      "folder": "images/landscape"
+    },
+    "2": {
+      "type": "systeminformation",
+      "title": "System Dashboard"
+    },
+    "3": {
+      "type": "headlinesnews",
+      "title": "Wide News Ticker",
+      "feed_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "image_folder": "images/news",
+      "text_position": "middle",
+      "font_size": 30,
+      "duration": 14,
+      "overlay_alpha": 140
+    },
+    "4": {
+      "type": "quote_generator",
+      "title": "Landscape Quotes",
+      "theme": "Futurism",
+      "font_size": 34,
+      "text_position": "middle",
+      "image_path": "images/quotes/wide_bg.jpg"
+    },
+    "7": {
+      "type": "blinkenlights",
+      "title": "Wide Blinkenlights",
+      "led_color": "Blue",
+      "columns": 32,
+      "computer_name": "LANDSCAPE-01"
+    },
+    "8": {
+      "type": "penrosetiling",
+      "tiling_type": "p3",
+      "generation_interval_sec": 3.5,
+      "max_generations": 10,
+      "tile_fill_alpha": 200,
+      "tile_edge_alpha": 100,
+      "bg_rgb": [
+        10,
+        10,
+        20
+      ],
+      "palette": [
+        [
+          200,
+          140,
+          60
+        ],
+        [
+          80,
+          160,
+          200
+        ],
+        [
+          180,
+          100,
+          160
+        ],
+        [
+          100,
+          190,
+          130
+        ],
+        [
+          220,
+          180,
+          100
+        ]
+      ]
+    },
+    "9": {
+      "type": "penrosetiling",
+      "tiling_type": "p2",
+      "generation_interval_sec": 4.0,
+      "max_generations": 9,
+      "tile_fill_alpha": 180,
+      "tile_edge_alpha": 120,
+      "bg_rgb": [
+        5,
+        5,
+        18
+      ],
+      "palette": [
+        [
+          230,
+          180,
+          70
+        ],
+        [
+          70,
+          140,
+          220
+        ],
+        [
+          200,
+          90,
+          140
+        ],
+        [
+          90,
+          210,
+          150
+        ],
+        [
+          240,
+          160,
+          70
+        ]
+      ]
+    },
+    "10": {
+      "type": "penrosetiling",
+      "tiling_type": "p1",
+      "generation_interval_sec": 5.0,
+      "max_generations": 7,
+      "tile_fill_alpha": 220,
+      "tile_edge_alpha": 60,
+      "bg_rgb": [
+        15,
+        12,
+        28
+      ],
+      "palette": [
+        [
+          180,
+          120,
+          220
+        ],
+        [
+          120,
+          200,
+          180
+        ],
+        [
+          220,
+          160,
+          100
+        ],
+        [
+          200,
+          220,
+          80
+        ],
+        [
+          100,
+          160,
+          230
+        ]
+      ]
+    },
+    "11": {
+      "type": "quoteslideshow",
+      "folder": "images/landscape",
+      "duration": 15,
+      "quote_file": "quotes_dystopian.json",
+      "play_audio": false,
+      "scale_mode": "cover",
+      "shuffle_images": true,
+      "quote_panel_alpha": 160,
+      "quote_panel_color": [
+        15,
+        15,
+        28
+      ],
+      "quote_max_width_frac": 0.6,
+      "quote_font_scale": 0.03
+    }
+  }
+}

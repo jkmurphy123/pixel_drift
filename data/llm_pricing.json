@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "currency": "USD",
+    "unit": "per 1M tokens",
+    "last_updated": "2026-08-17T00:00:00Z",
+    "source_note": "starter set compiled from public pricing pages; verify before use. Prices are approximate and may exclude caching, batch, or tier discounts.",
+    "refresh_interval_days": 7
+  },
+  "recommendations": {
+    "title": "RECOMMENDED VALUE MODELS",
+    "accent_rgb": [255, 200, 100],
+    "categories": [
+      {
+        "name": "Coding",
+        "model": "GPT-4o mini",
+        "provider": "OpenAI",
+        "input": 0.15,
+        "output": 0.60,
+        "why": "fast and cheap for everyday code edits and small features"
+      },
+      {
+        "name": "Deep reasoning",
+        "model": "DeepSeek-R1",
+        "provider": "DeepSeek",
+        "input": 0.55,
+        "output": 2.19,
+        "why": "open reasoning model at a fraction of top-tier reasoning prices"
+      },
+      {
+        "name": "General purpose",
+        "model": "Gemini 2.5 Flash",
+        "provider": "Google Gemini",
+        "input": 0.15,
+        "output": 0.60,
+        "why": "current, capable, and cheap enough for daily agent tasks"
+      }
+    ]
+  },
+  "providers": [
+    {
+      "name": "OpenAI",
+      "slug": "openai",
+      "accent_rgb": [16, 163, 127],
+      "models": [
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o",
+          "input": 2.50,
+          "output": 10.00,
+          "use_case": "strong general-purpose multimodal model"
+        },
+        {
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o mini",
+          "input": 0.15,
+          "output": 0.60,
+          "use_case": "fast, cheap everyday tasks"
+        },
+        {
+          "id": "gpt-4.1",
+          "name": "GPT-4.1",
+          "input": 2.00,
+          "output": 8.00,
+          "use_case": "long-context coding and reasoning"
+        },
+        {
+          "id": "o3",
+          "name": "o3",
+          "input": 10.00,
+          "output": 40.00,
+          "use_case": "deep reasoning, math, and coding"
+        },
+        {
+          "id": "o4-mini",
+          "name": "o4-mini",
+          "input": 1.10,
+          "output": 4.40,
+          "use_case": "cost-efficient reasoning"
+        }
+      ]
+    },
+    {
+      "name": "Google Gemini",
+      "slug": "google-gemini",
+      "accent_rgb": [66, 133, 244],
+      "models": [
+        {
+          "id": "gemini-2.5-pro",
+          "name": "Gemini 2.5 Pro",
+          "input": 1.25,
+          "output": 10.00,
+          "use_case": "high-quality reasoning and long context"
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "input": 0.15,
+          "output": 0.60,
+          "use_case": "balanced speed and quality"
+        },
+        {
+          "id": "gemini-2.0-flash",
+          "name": "Gemini 2.0 Flash",
+          "input": 0.10,
+          "output": 0.40,
+          "use_case": "fast, low-cost tasks"
+        }
+      ]
+    },
+    {
+      "name": "Anthropic",
+      "slug": "anthropic",
+      "accent_rgb": [209, 101, 84],
+      "models": [
+        {
+          "id": "claude-4-opus",
+          "name": "Claude 4 Opus",
+          "input": 15.00,
+          "output": 75.00,
+          "use_case": "highest quality writing and analysis"
+        },
+        {
+          "id": "claude-4-sonnet",
+          "name": "Claude 4 Sonnet",
+          "input": 3.00,
+          "output": 15.00,
+          "use_case": "strong general-purpose performance"
+        },
+        {
+          "id": "claude-4-haiku",
+          "name": "Claude 4 Haiku",
+          "input": 0.25,
+          "output": 1.25,
+          "use_case": "fast, low-cost latency-sensitive tasks"
+        }
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "slug": "deepseek",
+      "accent_rgb": [74, 144, 226],
+      "models": [
+        {
+          "id": "deepseek-v3",
+          "name": "DeepSeek-V3",
+          "input": 0.27,
+          "output": 1.10,
+          "use_case": "cheap general-purpose chat"
+        },
+        {
+          "id": "deepseek-r1",
+          "name": "DeepSeek-R1",
+          "input": 0.55,
+          "output": 2.19,
+          "use_case": "open reasoning model"
+        }
+      ]
+    },
+    {
+      "name": "Moonshot Kimi",
+      "slug": "moonshot",
+      "accent_rgb": [100, 80, 220],
+      "models": [
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "input": 3.00,
+          "output": 15.00,
+          "cached_input": 0.30,
+          "use_case": "flagship reasoning; $0.30 cached input"
+        },
+        {
+          "id": "kimi-k2.6-k2.7-code",
+          "name": "Kimi K2.6 & K2.7 Code",
+          "input": 0.95,
+          "output": 4.00,
+          "use_case": "coding-specialist models"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "input": 0.60,
+          "output": 3.00,
+          "use_case": "cheap long-context agent tasks"
+        }
+      ]
+    },
+    {
+      "name": "xAI",
+      "slug": "xai",
+      "accent_rgb": [255, 255, 255],
+      "models": [
+        {
+          "id": "grok-3",
+          "name": "Grok 3",
+          "input": 3.00,
+          "output": 15.00,
+          "use_case": "real-time knowledge and reasoning"
+        },
+        {
+          "id": "grok-3-mini",
+          "name": "Grok 3 mini",
+          "input": 0.30,
+          "output": 0.50,
+          "use_case": "low-cost Grok tasks"
+        }
+      ]
+    },
+    {
+      "name": "Groq",
+      "slug": "groq",
+      "accent_rgb": [245, 130, 32],
+      "models": [
+        {
+          "id": "llama-4-scout",
+          "name": "Llama 4 Scout",
+          "input": 0.20,
+          "output": 0.40,
+          "use_case": "ultra-fast open-model inference"
+        },
+        {
+          "id": "mixtral-8x22b",
+          "name": "Mixtral 8x22B",
+          "input": 0.27,
+          "output": 0.27,
+          "use_case": "fast MoE open-model inference"
+        }
+      ]
+    }
+  ]
+}

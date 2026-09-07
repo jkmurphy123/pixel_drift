@@ -1,0 +1,1012 @@
+{
+  "settings": {
+    "modes_config_file": "modes_config.json"
+  },
+  "types": {
+    "animatedscene": {
+      "entrypoint": "modes.animated_scene_mode:AnimatedSceneMode",
+      "required": [
+        "scenes_file",
+        "image_folder"
+      ],
+      "optional": [
+        "scene_duration",
+        "shuffle",
+        "start_scene",
+        "base_amplitude",
+        "layer_factors",
+        "background_rgb",
+        "scale_layers",
+        "crossfade_sec",
+        "motion_period",
+        "base_pan_speed"
+      ]
+    },
+    "slideshow": {
+      "entrypoint": "modes.slideshow_mode:SlideshowMode",
+      "required": [
+        "folder",
+        "duration"
+      ],
+      "optional": [
+        "show_time",
+        "overlay_font_path",
+        "font_size",
+        "overlay_font_size",
+        "show_date",
+        "show_weather",
+        "weather_location",
+        "weather_units",
+        "show_crypto",
+        "crypto_ids",
+        "show_dow"
+      ]
+    },
+    "systeminformation": {
+      "entrypoint": "modes.system_information_mode:SystemInformationMode",
+      "required": [],
+      "optional": [
+        "refresh_hz",
+        "show_seconds",
+        "compact"
+      ]
+    },
+    "statusticker": {
+      "entrypoint": "modes.status_ticker_mode:StatusTickerMode",
+      "required": [
+        "file",
+        "pause"
+      ],
+      "optional": [
+        "scroll_px_per_sec",
+        "cursor_blink_hz",
+        "accent_probability",
+        "blank_lines_between_loops",
+        "font_size"
+      ]
+    },
+    "blinkenlights": {
+      "entrypoint": "modes.blinkenlights_mode:BlinkenlightsPanelMode",
+      "required": [
+        "computer_name"
+      ],
+      "optional": [
+        "burst_duration_range",
+        "burst_probability_per_sec",
+        "burst_registers_range",
+        "burst_strength",
+        "columns",
+        "frame_rgb",
+        "label_font_scale",
+        "label_rgb",
+        "led_color",
+        "led_radius_scale",
+        "panel_fill_rgb",
+        "panel_id",
+        "pulse_speed",
+        "register_labels",
+        "registers_per_column",
+        "row_group_size",
+        "status_labels",
+        "status_probability_per_sec",
+        "subtitle",
+        "ticker_text",
+        "title_font_scale"
+      ]
+    },
+    "reminderhtml": {
+      "entrypoint": "modes.reminder_html_mode:ReminderHTMLMode",
+      "required": [
+        "file"
+      ],
+      "optional": [
+        "bg_rgb",
+        "default_fg_rgb",
+        "default_font_name",
+        "default_font_size",
+        "margin_scale",
+        "line_spacing",
+        "refresh_hz"
+      ]
+    },
+    "quotegenerator": {
+      "entrypoint": "modes.quote_generator_mode:QuoteGeneratorMode",
+      "type_config": {
+        "model": "gpt-4o-mini",
+        "max_api_calls_default": 200
+      },
+      "optional": [
+        "font_size",
+        "image_path",
+        "text_position",
+        "theme"
+      ]
+    },
+    "headlinesnews": {
+      "entrypoint": "modes.headlines_news_mode:HeadlinesNewsMode",
+      "required": [
+        "feed_url",
+        "image_folder",
+        "text_position",
+        "duration"
+      ],
+      "optional": [
+        "show_time",
+        "overlay_font_path",
+        "font_size",
+        "overlay_font_size",
+        "overlay_margin",
+        "font_name",
+        "headline_font_scale",
+        "body_font_scale",
+        "margin_scale",
+        "overlay_alpha",
+        "refresh_every_stories",
+        "max_body_chars"
+      ]
+    },
+    "galacticnavigation": {
+      "entrypoint": "modes.galactic_navigation_mode:GalacticNavigationConsoleMode",
+      "required": [],
+      "optional": [
+        "refresh_hz",
+        "seed",
+        "sector_name",
+        "waypoint_count",
+        "star_count",
+        "grid_alpha",
+        "scanline_alpha",
+        "accent_rgb",
+        "show_coordinates",
+        "jump_interval_sec",
+        "waypoint_labels"
+      ]
+    },
+    "deepspacesignaldecoder": {
+      "entrypoint": "modes.deep_space_signal_decoder_mode:DeepSpaceSignalDecoderMode",
+      "required": [],
+      "optional": [
+        "refresh_hz",
+        "seed",
+        "accent_rgb",
+        "grid_alpha",
+        "scanline_alpha",
+        "noise_alpha",
+        "waterfall_bins",
+        "waterfall_speed",
+        "message_rate_cps",
+        "lock_probability_per_min",
+        "lock_duration_range",
+        "show_hex",
+        "show_glyphs",
+        "title"
+      ]
+    },
+    "retrocrthackerterminal": {
+      "entrypoint": "modes.retro_crt_hacker_terminal_mode:RetroCRTHackerTerminalMode",
+      "required": [],
+      "optional": [
+        "title",
+        "palette",
+        "prompt",
+        "typing_cps",
+        "cursor_blink_hz",
+        "lines_on_screen",
+        "max_lines",
+        "max_chars_per_line",
+        "glitch_probability_per_min",
+        "jitter_px",
+        "scanline_alpha",
+        "noise_alpha",
+        "crt_curvature",
+        "crt_vignette",
+        "crt_chroma",
+        "seed"
+      ]
+    },
+    "cryopodstatuswall": {
+      "entrypoint": "modes.cryogenic_pod_status_wall_mode:CryogenicPodStatusWallMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "num_pods",
+        "columns_portrait",
+        "columns_landscape",
+        "pod_spacing_scale",
+        "label_font_scale",
+        "value_font_scale",
+        "header_font_scale",
+        "footer_font_scale",
+        "frost_particle_rate",
+        "alarm_probability_per_min",
+        "seed"
+      ]
+    },
+    "autonomousdronefleettracker": {
+      "entrypoint": "modes.autonomous_drone_fleet_tracker_mode:AutonomousDroneFleetTrackerMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "seed",
+        "drone_count",
+        "sector_name",
+        "show_event_log",
+        "map_margin_scale",
+        "scanline_alpha",
+        "noise_alpha",
+        "crt_vignette",
+        "offline_probability_per_min",
+        "return_probability_per_min",
+        "charge_time_range"
+      ]
+    },
+    "cosmiclibraryindex": {
+      "entrypoint": "modes.cosmic_library_index_mode:CosmicLibraryIndexMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "shelf_count",
+        "cards_per_shelf",
+        "flip_interval_range",
+        "dust_rate",
+        "anomaly_probability_per_min",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "portrait_columns"
+      ]
+    },
+    "alienbiometricscanner": {
+      "entrypoint": "modes.alien_biometric_scanner_mode:AlienBiometricScannerMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "scan_speed",
+        "scan_band_height",
+        "target_switch_interval_range",
+        "alert_probability_per_min",
+        "show_waveform"
+      ]
+    },
+    "vintagespaceprobetelemetry": {
+      "entrypoint": "modes.vintage_space_probe_telemetry_mode:VintageSpaceProbeTelemetryMode",
+      "required": [],
+      "optional": [
+        "title",
+        "probe_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "show_stripcharts",
+        "chart_count",
+        "dropout_probability_per_min",
+        "reacquire_time_range",
+        "packet_rate_range",
+        "portrait_layout"
+      ]
+    },
+    "forgottenspacestationdirectory": {
+      "entrypoint": "modes.forgotten_space_station_directory_mode:ForgottenSpaceStationDirectoryMode",
+      "required": [],
+      "optional": [
+        "title",
+        "station_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "rows_visible",
+        "scroll_speed",
+        "glitch_probability_per_min",
+        "offline_probability_per_min",
+        "announcement_interval_range",
+        "portrait_mode",
+        "font_scale"
+      ]
+    },
+    "retrocomputermemoryvisualizer": {
+      "entrypoint": "modes.retro_computer_memory_visualizer_mode:RetroComputerMemoryVisualizerMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "memory_kb",
+        "block_kb",
+        "alloc_rate",
+        "free_rate",
+        "gc_probability_per_min",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "show_hex_dump",
+        "portrait_columns"
+      ]
+    },
+    "coldwarcommandroomwall": {
+      "entrypoint": "modes.cold_war_command_room_wall_mode:ColdWarCommandRoomWallMode",
+      "required": [],
+      "optional": [
+        "title",
+        "room_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "portrait_layout",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "defcon_start",
+        "defcon_drift_probability_per_min",
+        "radar_count",
+        "blip_rate",
+        "log_interval_range",
+        "show_teletype",
+        "lamp_count"
+      ]
+    },
+    "missioncontrolconsole": {
+      "entrypoint": "modes.mission_control_console_mode:MissionControlConsoleMode",
+      "required": [],
+      "optional": [
+        "title",
+        "mission_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "portrait_layout",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "console_rows",
+        "console_cols",
+        "anomaly_probability_per_min",
+        "event_interval_range",
+        "chart_count",
+        "orbit_period_sec"
+      ]
+    },
+    "corememorymatrix": {
+      "entrypoint": "modes.core_memory_matrix_mode:CoreMemoryMatrixMode",
+      "required": [],
+      "optional": [
+        "title",
+        "bank_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "rows",
+        "cols",
+        "write_probability_per_sec",
+        "read_probability_per_sec",
+        "parity_fault_probability_per_min",
+        "pulse_ttl",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "portrait_layout"
+      ]
+    },
+    "basicprompt": {
+      "entrypoint": "modes.basic_prompt_mode:BasicPromptMode",
+      "required": [],
+      "optional": [
+        "title",
+        "machine_name",
+        "prompt",
+        "palette",
+        "typing_cps",
+        "cursor_blink_hz",
+        "lines_on_screen",
+        "max_chars_per_line",
+        "seed"
+      ]
+    },
+    "rbmkreactorsimulation": {
+      "entrypoint": "modes.rbmk_reactor_simulation_mode:RBMKReactorSimulationMode",
+      "required": [],
+      "optional": [
+        "title",
+        "reactor_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "rows",
+        "cols",
+        "loop_duration_sec",
+        "portrait_layout"
+      ]
+    },
+    "machinedreamscape": {
+      "entrypoint": "modes.machine_dreamscape_mode:MachineDreamscapeMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "portrait_layout",
+        "layer_count",
+        "node_count",
+        "drift_speed",
+        "connectivity",
+        "bloom_strength",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "whisper_interval_range",
+        "show_whispers"
+      ]
+    },
+    "spaceelevatortrafficcontrol": {
+      "entrypoint": "modes.space_elevator_traffic_control_mode:SpaceElevatorTrafficControlMode",
+      "required": [],
+      "optional": [
+        "title",
+        "site_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "portrait_layout",
+        "car_count",
+        "car_speed_range",
+        "dwell_time_range",
+        "queue_rate_per_min",
+        "weather_alert_probability_per_min",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "show_log"
+      ]
+    },
+    "alienlanguagerosettaconsole": {
+      "entrypoint": "modes.alien_language_rosetta_console_mode:AlienLanguageRosettaConsoleMode",
+      "required": [],
+      "optional": [
+        "title",
+        "site_name",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "portrait_layout",
+        "rows_visible",
+        "decode_rate",
+        "mutation_rate",
+        "confidence_drift",
+        "lock_probability_per_min",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "show_log"
+      ]
+    },
+    "dnasequencevisualizer": {
+      "entrypoint": "modes.dna_sequence_visualizer_mode:DNASequenceVisualizerMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "scroll_speed",
+        "helix_rotation_speed",
+        "show_markers",
+        "marker_probability",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "seed"
+      ]
+    },
+    "binarywaterfall": {
+      "entrypoint": "modes.binary_waterfall_mode:BinaryWaterfallMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "drop_speed_range",
+        "spawn_rate",
+        "flicker_speed",
+        "binary_only",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "seed"
+      ]
+    },
+    "animatedcityrain": {
+      "entrypoint": "modes.animated_city_rain_mode:AnimatedCityRainMode",
+      "required": [
+        "image_folder"
+      ],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "rain_density",
+        "rain_speed_range",
+        "wind_slant",
+        "scanline_alpha",
+        "vignette_strength"
+      ]
+    },
+    "globalthreatmap": {
+      "entrypoint": "modes.global_threat_map_mode:GlobalThreatMapMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "scanline_alpha",
+        "vignette_strength",
+        "api_update_interval_min",
+        "vector_glow_strength",
+        "seed"
+      ]
+    },
+    "seventiescomputerdashboard": {
+      "entrypoint": "modes.seventies_operator_dashboard_mode:SeventiesComputerDashboardMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "panel_count",
+        "lamp_count",
+        "flicker_rate",
+        "needle_speed",
+        "show_log",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "seed"
+      ]
+    },
+    "chatreplay": {
+      "entrypoint": "modes.chat_replay_mode:ChatReplayMode",
+      "required": [
+        "conversations_folder",
+        "thumbnails_folder"
+      ],
+      "optional": [
+        "title",
+        "seed",
+        "refresh_hz",
+        "font_scale",
+        "header_height_frac",
+        "footer_height_frac",
+        "chat_padding",
+        "typing_cps",
+        "min_pause_s",
+        "max_pause_s",
+        "typing_indicator_min_s",
+        "typing_indicator_max_s",
+        "end_pause_s",
+        "bubble_radius",
+        "bubble_max_width_frac",
+        "bubble_alpha",
+        "bubble_outline_alpha",
+        "show_timestamp",
+        "timestamp_format",
+        "bg_rgb",
+        "panel_outline_alpha",
+        "noise_alpha"
+      ]
+    },
+    "fantasynews": {
+      "entrypoint": "modes.fantasy_news_mode:FantasyNewsMode",
+      "required": [
+        "stories_folder",
+        "duration"
+      ],
+      "optional": [
+        "image_folder",
+        "show_time",
+        "show_seconds",
+        "time_format",
+        "font_name",
+        "headline_font_scale",
+        "body_font_scale",
+        "time_font_scale",
+        "margin_scale",
+        "overlay_alpha",
+        "max_body_chars",
+        "dim_bg",
+        "font_path",
+        "ordered"
+      ]
+    },
+    "alienstarmapcartographer": {
+      "entrypoint": "modes.alien_star_map_cartographer_mode:AlienStarMapCartographerMode",
+      "required": [],
+      "optional": [
+        "title",
+        "subtitle",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "star_count",
+        "near_star_frac",
+        "constellation_count",
+        "constellation_links",
+        "drift_speed",
+        "parallax_strength",
+        "twinkle_strength",
+        "zoom_pulse_strength",
+        "grid_alpha",
+        "ring_alpha",
+        "label_density",
+        "stamp_probability_per_min",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength"
+      ]
+    },
+    "retroaithoughtstream": {
+      "entrypoint": "modes.retro_ai_thought_stream_mode:RetroAIThoughtStreamMode",
+      "required": [],
+      "optional": [
+        "title",
+        "subtitle",
+        "seed",
+        "refresh_hz",
+        "accent_rgb",
+        "text_rgb",
+        "dim_rgb",
+        "font_scale",
+        "lines_visible",
+        "scroll_speed_lps",
+        "thought_rate_per_min",
+        "glitch_rate_per_min",
+        "poem_rate_per_min",
+        "wrongness_rate_per_min",
+        "show_timestamps",
+        "timestamp_format",
+        "left_margin",
+        "top_margin"
+      ]
+    },
+    "aiethicscompliancedashboard": {
+      "entrypoint": "modes.ai_ethics_compliance_dashboard_mode:AIEthicsComplianceDashboardMode",
+      "required": [],
+      "optional": [
+        "title",
+        "subtitle",
+        "seed",
+        "refresh_hz",
+        "accent_rgb",
+        "text_rgb",
+        "dim_rgb",
+        "warn_rgb",
+        "font_scale",
+        "slider_count",
+        "update_rate_hz",
+        "volatility",
+        "compliance_target",
+        "drift_strength",
+        "show_events",
+        "event_rate_per_min",
+        "graph_history_seconds"
+      ]
+    },
+    "hackerbbsfeed": {
+      "entrypoint": "modes.hacker_bbs_feed_mode:HackerBBSFeedMode",
+      "required": [],
+      "optional": [
+        "title",
+        "accent_rgb",
+        "refresh_hz",
+        "typing_cps",
+        "message_interval_sec",
+        "max_messages",
+        "font_size",
+        "seed",
+        "max_lines",
+        "max_chars_per_line"
+      ]
+    },
+    "conwaylife": {
+      "entrypoint": "modes.conway_life_mode:ConwayLifeMode",
+      "required": [],
+      "optional": [
+        "title",
+        "update_hz",
+        "random_fill",
+        "wrap",
+        "reset_if_static_steps",
+        "reset_interval_sec",
+        "seed",
+        "cells_on_short_side",
+        "cell_size_px",
+        "alive_rgb",
+        "dead_rgb",
+        "show_grid",
+        "grid_rgb"
+      ]
+    },
+    "galtonboard": {
+      "entrypoint": "modes.galton_board_mode:GaltonBoardMode",
+      "required": [],
+      "optional": [
+        "title",
+        "pin_rows",
+        "pins",
+        "balls",
+        "drop_rate",
+        "drop_one_at_time",
+        "wait_after_sec",
+        "fall_speed",
+        "seed",
+        "ball_color",
+        "ball_rgb",
+        "ball_radius_px",
+        "pin_radius_px",
+        "background_rgb",
+        "pin_rgb",
+        "bin_rgb",
+        "show_pins",
+        "show_bins"
+      ]
+    },
+    "curatedslideshow": {
+      "entrypoint": "modes.curated_slideshow_mode:CuratedSlideshowMode",
+      "required": [
+        "data_file"
+      ],
+      "optional": [
+        "image_folder",
+        "duration",
+        "scale_mode",
+        "shuffle",
+        "title_font_scale",
+        "desc_font_scale",
+        "text_rgb",
+        "panel_rgb",
+        "panel_alpha",
+        "margin_scale",
+        "line_spacing",
+        "show_title",
+        "show_description"
+      ]
+    },
+    "networkstatuswall": {
+      "entrypoint": "modes.network_status_wall_mode:NetworkStatusWallMode",
+      "required": [
+        "devices"
+      ],
+      "optional": [
+        "title",
+        "subtitle",
+        "accent_rgb",
+        "columns_portrait",
+        "columns_landscape",
+        "panel_spacing_scale",
+        "refresh_hz",
+        "poll_interval_sec",
+        "ping_timeout_sec",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "seed"
+      ]
+    },
+    "antfarm": {
+      "entrypoint": "antfarm.antfarm_mode:AntFarmMode",
+      "required": [
+        "worker_count",
+        "orientation"
+      ],
+      "optional": [
+        "title",
+        "seed",
+        "sim_ticks_per_second",
+        "ant_speed_tiles_per_sec",
+        "surface_height_ratio",
+        "planner_interval_sec",
+        "branchiness",
+        "chamber_frequency",
+        "sky_rgb",
+        "surface_rgb",
+        "soil_rgb",
+        "deep_soil_rgb",
+        "ant_rgb",
+        "debug_overlay"
+      ]
+    },
+    "scifihomecontrolpanel": {
+      "entrypoint": "modes.scifi_home_control_panel_mode:SciFiHomeControlPanelMode",
+      "required": [],
+      "optional": [
+        "title",
+        "subtitle",
+        "accent_rgb",
+        "seed",
+        "refresh_hz",
+        "panel_duration_sec",
+        "crossfade_sec",
+        "portrait_layout",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength"
+      ]
+    },
+    "fantasymapgenerator": {
+      "entrypoint": "modes.fantasy_map_mode:FantasyMapMode",
+      "required": [],
+      "optional": [
+        "title",
+        "seed",
+        "map_size",
+        "water_level",
+        "mountain_level",
+        "hill_level",
+        "num_rivers",
+        "num_settlements",
+        "regeneration_interval_sec",
+        "show_labels",
+        "show_rivers",
+        "show_roads",
+        "terrain_colors",
+        "border_color",
+        "render_scale"
+      ]
+    },
+    "penrosetiling": {
+      "entrypoint": "modes.penrose_tiling_mode:PenroseTilingMode",
+      "required": [],
+      "optional": [
+        "tiling_type",
+        "generation_interval_sec",
+        "max_generations",
+        "tile_fill_alpha",
+        "tile_edge_alpha",
+        "bg_rgb",
+        "palette",
+        "seed",
+        "center_x",
+        "center_y",
+        "initial_radius"
+      ]
+    },
+    "quoteslideshow": {
+      "entrypoint": "modes.quote_slideshow_mode:QuoteSlideshowMode",
+      "required": [
+        "folder",
+        "duration",
+        "quote_file"
+      ],
+      "optional": [
+        "play_audio",
+        "scale_mode",
+        "shuffle_images",
+        "quote_panel_alpha",
+        "quote_panel_color",
+        "quote_text_color",
+        "quote_author_color",
+        "quote_font_scale",
+        "quote_max_width_frac",
+        "quote_line_spacing"
+      ]
+    },
+    "satellitetracker": {
+      "entrypoint": "modes.satellite_tracker_mode:SatelliteTrackerMode",
+      "required": [],
+      "optional": [
+        "duration",
+        "targets",
+        "rotation",
+        "tle_max_age_hours",
+        "cache_dir",
+        "update_hz",
+        "observer_lat",
+        "observer_lon",
+        "observer_name",
+        "title",
+        "accent_rgb",
+        "seed",
+        "scanline_alpha"
+      ]
+    },
+    "wargames": {
+      "entrypoint": "modes.wargames_mode:WarGamesMode",
+      "required": [],
+      "optional": [
+        "title",
+        "scenario_file",
+        "scenario_id",
+        "speed",
+        "seed",
+        "accent_rgb",
+        "scanline_alpha",
+        "hold_on_outcome_s",
+        "hold_on_quote_s"
+      ]
+    },
+    "llmpricingwall": {
+      "entrypoint": "modes.llm_pricing_wall_mode:LLMPricingWallMode",
+      "required": [],
+      "optional": [
+        "data_file",
+        "title",
+        "subtitle",
+        "accent_rgb",
+        "columns_portrait",
+        "columns_landscape",
+        "panel_spacing_scale",
+        "scanline_alpha",
+        "noise_alpha",
+        "vignette_strength",
+        "seed"
+      ]
+    },
+    "controlpanel": {
+      "entrypoint": "modes.control_panel_mode:ControlPanelMode",
+      "required": [
+        "layout_file"
+      ],
+      "optional": [
+        "skin",
+        "seed",
+        "accent_rgb",
+        "trace_rgb",
+        "lamp_rgb",
+        "scale_mode"
+      ]
+    },
+    "puppettheatre": {
+      "entrypoint": "modes.puppet_theatre_mode:PuppetTheatreMode",
+      "required": [
+        "scenes_file",
+        "image_folder"
+      ],
+      "optional": [
+        "scene_description_fade_in_sec",
+        "scene_description_hold_sec",
+        "scene_description_fade_out_sec",
+        "dialogue_fade_in_sec",
+        "dialogue_hold_sec",
+        "dialogue_hold_extra_per_word",
+        "dialogue_fade_out_sec",
+        "transition_duration_sec",
+        "pop_duration_sec",
+        "scene_pause_before_script_sec",
+        "scene_pause_after_script_sec",
+        "loop_fade_to_black_sec",
+        "loop_black_hold_sec",
+        "default_transition_in",
+        "default_transition_out",
+        "background_rgb",
+        "dialogue_bg_rgb",
+        "dialogue_fg_rgb",
+        "dialogue_font_size",
+        "dialogue_box_alpha",
+        "dialogue_box_margin",
+        "description_font_size",
+        "stage_positions",
+        "scale_characters",
+        "character_height_frac",
+        "base_amplitude",
+        "layer_factors"
+      ]
+    }
+  }
+}

@@ -1,0 +1,122 @@
+[ INIT ] Orbital Platform OS v9.41 (ARES)
+[ INIT ] Build 9.41.7721-station
+[ OK   ] Primary bootloader checksum verified
+[ OK   ] Secondary bootloader checksum verified
+[ OK   ] Secure boot chain established
+[ INIT ] Initializing low-level subsystems
+[ OK   ] Memory controller online
+[ OK   ] ECC memory scrub complete
+[ OK   ] CPU cluster 0 online
+[ OK   ] CPU cluster 1 online
+[ OK   ] Vector acceleration enabled
+[ OK   ] Thermal monitoring active
+[ INIT ] Loading station hardware profiles
+[ OK   ] Profile: ORBITAL-FUSION-HAB-07
+[ INIT ] Initializing communications bus
+[ OK   ] Internal data ring synchronized
+[ OK   ] External comms interface idle
+[ INIT ] Mounting core filesystems
+[ OK   ] /boot mounted read-only
+[ OK   ] /core mounted read-write
+[ OK   ] /telemetry mounted
+[ OK   ] /logs mounted
+[ INIT ] Starting system services
+[ OK   ] Telemetry daemon started
+[ OK   ] Diagnostics daemon started
+[ OK   ] Security watchdog armed
+[ OK   ] Redundant control loop enabled
+[ INIT ] Initializing reactor control framework
+[ OK   ] Reactor control firmware loaded
+[ OK   ] Control firmware signature verified
+[ INIT ] Verifying sensor array integrity
+[ OK   ] Neutron flux sensors responding
+[ OK   ] Magnetic field sensors responding
+[ OK   ] Thermal gradient sensors responding
+[ OK   ] Structural stress sensors responding
+[ OK   ] Radiation monitors responding
+[ INIT ] Performing pre-start diagnostics
+[ OK   ] Sensor calibration within tolerance
+[ OK   ] Control rod actuators nominal
+[ OK   ] Cryogenic pumps operational
+[ OK   ] Vacuum chamber pressure nominal
+[ INIT ] Checking containment systems
+[ OK   ] Primary magnetic confinement coils online
+[ OK   ] Secondary magnetic confinement coils online
+[ OK   ] Emergency quench system armed
+[ OK   ] Field asymmetry within limits
+[ INIT ] Initializing power distribution
+[ OK   ] External solar array link established
+[ OK   ] Battery banks at 98% capacity
+[ OK   ] Auxiliary fission reactor in standby
+[ INIT ] Routing startup power to fusion core
+[ OK   ] Power routing confirmed
+[ INIT ] Beginning staged reactor startup
+[ INFO ] Stage 1: Cryogenic stabilization
+[ OK   ] Fuel injectors chilled
+[ OK   ] Superconducting coils at operating temperature
+[ INFO ] Stage 2: Vacuum conditioning
+[ OK   ] Chamber vacuum at 10^-9 torr
+[ OK   ] Outgassing within expected range
+[ INFO ] Stage 3: Magnetic field ramp-up
+[ OK   ] Toroidal field increasing
+[ OK   ] Poloidal field synchronized
+[ OK   ] Field harmonics stable
+[ INFO ] Stage 4: Fuel preload
+[ OK   ] Deuterium lines primed
+[ OK   ] Tritium lines primed
+[ OK   ] Fuel mixture ratio verified
+[ WARN ] Minor turbulence detected in injector 3
+[ OK   ] Injector 3 compensated
+[ INFO ] Stage 5: Plasma ignition sequence
+[ OK   ] Pre-ionization pulse complete
+[ OK   ] Plasma formation detected
+[ OK   ] Plasma stability within envelope
+[ INFO ] Stage 6: Power ascent
+[ OK   ] Fusion reaction sustained
+[ OK   ] Neutron flux rising as expected
+[ OK   ] Thermal output increasing
+[ INFO ] Monitoring containment margins
+[ OK   ] Magnetic confinement stable
+[ OK   ] Structural stress nominal
+[ OK   ] Radiation leakage below threshold
+[ INFO ] Stage 7: Grid synchronization
+[ OK   ] Power converters locked
+[ OK   ] Station grid synchronized
+[ OK   ] Load transfer initiated
+[ OK   ] Load transfer complete
+[ INFO ] Fusion reactor now supplying station power
+[ INIT ] Post-start diagnostics
+[ OK   ] Control loop latency nominal
+[ OK   ] Sensor polling stable
+[ OK   ] Data logging active
+[ INFO ] Performing extended stability check
+[ OK   ] Plasma oscillations damped
+[ OK   ] Fuel consumption rate nominal
+[ OK   ] Waste heat routing active
+[ INFO ] Engaging heat rejection systems
+[ OK   ] Radiator arrays deployed
+[ OK   ] Coolant flow optimal
+[ OK   ] Thermal equilibrium approaching
+[ INFO ] Verifying safety interlocks
+[ OK   ] Emergency shutdown circuit verified
+[ OK   ] Manual override controls responsive
+[ OK   ] Autonomous scram logic armed
+[ INFO ] Reactor startup complete
+[ OK   ] Fusion core operating at 32% rated output
+[ INFO ] Gradual power ramp authorized
+[ OK   ] Increasing output to 40%
+[ OK   ] Increasing output to 50%
+[ OK   ] Increasing output to 60%
+[ OK   ] Increasing output to 70%
+[ OK   ] Output stabilized at mission profile
+[ INFO ] Final systems check
+[ OK   ] Life support power stable
+[ OK   ] Habitat ring power stable
+[ OK   ] Docking bay power stable
+[ OK   ] Research modules power stable
+[ INFO ] All systems nominal
+[ OK   ] Fusion reactor online
+[ OK   ] Station operating on primary fusion power
+[ INFO ] Startup sequence complete
+[ INFO ] Entering continuous operation mode
+[ OK   ] Monitoring continues

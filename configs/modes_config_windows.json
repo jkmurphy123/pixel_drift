@@ -1,0 +1,536 @@
+{
+  "modes": {
+    "0": {
+      "type": "SystemInformation",
+      "refresh_hz": 2.0,
+      "show_seconds": false
+    },
+    "1": {
+      "type": "slideshow",
+      "name": "Cityscapes",
+      "folder": "G:\\images\\cyberpunk3",
+      "duration": 120
+    },
+    "2": {
+      "type": "slideshow",
+      "name": "Cyberart",
+      "folder": "G:\\images\\cyberpunk4",
+      "duration": 60,
+      "show_time": true,
+      "font_size": 192
+    },
+    "3": {
+      "type": "slideshow",
+      "name": "Cyberart",
+      "folder": "G:\\images\\cyberpunk5",
+      "duration": 60,
+      "show_time": true,
+      "font_size": 192
+    },
+    "4": {
+      "type": "slideshow",
+      "name": "Cyberart",
+      "folder": "G:\\images\\cyberpunk6",
+      "duration": 60,
+      "show_time": true,
+      "font_size": 192
+    },
+    "5": {
+      "type": "blinkenlights",
+      "computer_name": "COLOSSUS Mark III",
+      "led_color": "Green",
+      "columns": 4,
+      "registers_per_column": 6,
+      "register_labels": [
+        "CLK",
+        "IPTR",
+        "ACC",
+        "IR",
+        "SP",
+        "TMP",
+        "SCL",
+        "PF3",
+        "VECT",
+        "HOLD",
+        "PAGE",
+        "SENS",
+        "EXEC",
+        "MAR",
+        "MDR",
+        "PC",
+        "FLGS",
+        "ALU",
+        "IO",
+        "ACT",
+        "MMIO",
+        "CTRL",
+        "ALU2",
+        "PIPE"
+      ],
+      "title_font_scale": 0.04,
+      "label_font_scale": 0.009,
+      "led_radius_scale": 0.007,
+      "pulse_speed": 2.3,
+      "burst_probability_per_sec": 0.25,
+      "burst_duration_range": [
+        0.6,
+        1.4
+      ],
+      "burst_registers_range": [
+        1,
+        3
+      ],
+      "burst_strength": 1.8
+    },
+    "6": {
+      "type": "StatusTicker",
+      "file": "boot_ticker.txt",
+      "pause": 3.5,
+      "scroll_px_per_sec": 160,
+      "cursor_blink_hz": 2.0,
+      "accent_probability": 0.35,
+      "blank_lines_between_loops": 5
+    },
+    "7": {
+      "type": "autonomousdronefleettracker",
+      "title": "AUTONOMOUS DRONE TRACKER",
+      "sector_name": "SECTOR: AURORA YARD",
+      "accent_rgb": [
+        90,
+        220,
+        255
+      ],
+      "refresh_hz": 60,
+      "drone_count": 26,
+      "show_event_log": true,
+      "map_margin_scale": 0.05,
+      "scanline_alpha": 14,
+      "noise_alpha": 10,
+      "crt_vignette": 0.28,
+      "offline_probability_per_min": 0.6,
+      "return_probability_per_min": 1.0,
+      "charge_time_range": [
+        6.0,
+        14.0
+      ],
+      "seed": 777001
+    },
+    "8": {
+      "type": "forgottenspacestationdirectory",
+      "title": "FORGOTTEN STATION DIRECTORY",
+      "station_name": "STATION: EIDOLON-9",
+      "accent_rgb": [
+        200,
+        255,
+        210
+      ],
+      "refresh_hz": 60,
+      "portrait_mode": true,
+      "rows_visible": 18,
+      "scroll_speed": 0.35,
+      "glitch_probability_per_min": 1.2,
+      "offline_probability_per_min": 0.7,
+      "announcement_interval_range": [
+        9.0,
+        18.0
+      ],
+      "scanline_alpha": 10,
+      "noise_alpha": 10,
+      "vignette_strength": 0.32,
+      "seed": 606060
+    },
+    "9": {
+      "type": "retrocomputermemoryvisualizer",
+      "title": "RETRO COMPUTER MEMORY VISUALIZER",
+      "accent_rgb": [
+        90,
+        220,
+        255
+      ],
+      "refresh_hz": 60,
+      "memory_kb": 256,
+      "block_kb": 4,
+      "alloc_rate": 0.9,
+      "free_rate": 0.55,
+      "gc_probability_per_min": 0.45,
+      "show_hex_dump": true,
+      "portrait_columns": 2,
+      "scanline_alpha": 10,
+      "noise_alpha": 10,
+      "vignette_strength": 0.3,
+      "seed": 888123
+    },
+    "10": {
+      "type": "galacticnavigation",
+      "sector_name": "SECTOR: VELA-IX",
+      "waypoint_count": 7,
+      "star_count": 260,
+      "refresh_hz": 60,
+      "accent_rgb": [
+        80,
+        200,
+        255
+      ],
+      "grid_alpha": 70,
+      "scanline_alpha": 18,
+      "jump_interval_sec": 14.0
+    },
+    "11": {
+      "type": "deepspacesignaldecoder",
+      "title": "RELAY INTERCEPT CONSOLE",
+      "seed": 42,
+      "accent_rgb": [
+        180,
+        255,
+        140
+      ],
+      "scanline_alpha": 12,
+      "noise_alpha": 22,
+      "waterfall_bins": 128,
+      "waterfall_speed": 300,
+      "message_rate_cps": 18,
+      "lock_probability_per_min": 0.8,
+      "lock_duration_range": [
+        10.0,
+        22.0
+      ],
+      "show_hex": false,
+      "show_glyphs": true
+    },
+    "12": {
+      "type": "retrocrthackerterminal",
+      "title": "NEON//SHELL v2.7",
+      "palette": "green",
+      "prompt": "root@station:/#",
+      "typing_cps": 44,
+      "cursor_blink_hz": 2.0,
+      "glitch_probability_per_min": 1.2,
+      "jitter_px": 2,
+      "scanline_alpha": 18,
+      "noise_alpha": 14,
+      "crt_curvature": 0.0,
+      "crt_vignette": 0.38,
+      "crt_chroma": 0.1
+    },
+    "13": {
+      "type": "retrocrthackerterminal",
+      "title": "AMBERLINK CONSOLE",
+      "palette": "amber",
+      "prompt": "ops@uplink:~$",
+      "typing_cps": 28,
+      "cursor_blink_hz": 1.6,
+      "glitch_probability_per_min": 0.6,
+      "jitter_px": 1,
+      "scanline_alpha": 14,
+      "noise_alpha": 10,
+      "crt_curvature": 0.0,
+      "crt_vignette": 0.3,
+      "crt_chroma": 0.06,
+      "seed": 1337
+    },
+    "14": {
+      "type": "machinedreamscape",
+      "title": "MACHINE DREAMSCAPE",
+      "accent_rgb": [
+        170,
+        255,
+        230
+      ],
+      "refresh_hz": 60,
+      "portrait_layout": false,
+      "layer_count": 4,
+      "node_count": 42,
+      "drift_speed": 0.22,
+      "connectivity": 0.18,
+      "bloom_strength": 0.55,
+      "show_whispers": true,
+      "whisper_interval_range": [
+        6.0,
+        14.0
+      ],
+      "scanline_alpha": 10,
+      "noise_alpha": 10,
+      "vignette_strength": 0.32,
+      "seed": 909090
+    },
+    "15": {
+      "type": "alienlanguagerosettaconsole",
+      "title": "ALIEN LANGUAGE ROSETTA CONSOLE",
+      "site_name": "LINGUISTICS BAY: ROSETTA NODE-7",
+      "accent_rgb": [
+        200,
+        255,
+        210
+      ],
+      "refresh_hz": 60,
+      "portrait_layout": true,
+      "rows_visible": 31,
+      "decode_rate": 0.9,
+      "mutation_rate": 0.35,
+      "confidence_drift": 0.2,
+      "lock_probability_per_min": 0.55,
+      "show_log": true,
+      "scanline_alpha": 10,
+      "noise_alpha": 10,
+      "vignette_strength": 0.3,
+      "seed": 707070
+    },
+    "16": {
+      "type": "conway_life",
+      "title": "CONWAY'S GAME OF LIFE",
+      "update_hz": 12.0,
+      "random_fill": 0.28,
+      "wrap": true,
+      "reset_if_static_steps": 90,
+      "reset_interval_sec": 120,
+      "cells_on_short_side": 84,
+      "alive_rgb": [
+        170,
+        255,
+        210
+      ],
+      "dead_rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "17": {
+      "type": "galtonboard",
+      "title": "GALTON BOARD",
+      "pin_rows": 12,
+      "balls": 320,
+      "ball_color": "random",
+      "drop_rate": 45,
+      "drop_one_at_time": true,
+      "wait_after_sec": 10
+    },
+    "18": {
+      "type": "antfarm",
+      "title": "ANT FARM",
+      "worker_count": 20,
+      "orientation": "landscape",
+      "sim_ticks_per_second": 8,
+      "ant_speed_tiles_per_sec": 1.8,
+      "surface_height_ratio": 0.22,
+      "seed": 314159
+    },
+    "19": {
+      "type": "networkstatuswall",
+      "title": "HOME NETWORK STATUS WALL",
+      "subtitle": "raspberry pi and workstation reachability",
+      "accent_rgb": [
+        110,
+        230,
+        255
+      ],
+      "columns_portrait": 2,
+      "columns_landscape": 3,
+      "panel_spacing_scale": 0.026,
+      "refresh_hz": 60,
+      "poll_interval_sec": 15,
+      "ping_timeout_sec": 1.5,
+      "scanline_alpha": 10,
+      "noise_alpha": 8,
+      "vignette_strength": 0.24,
+      "seed": 424242,
+      "devices": [
+        {
+          "hostname": "epaperdevice1.local",
+          "name": "TRMNL Display",
+          "role": "epaper kiosk"
+        },
+        {
+          "hostname": "epaperdevice2.local",
+          "name": "AI News Display",
+          "role": "epaper kiosk"
+        },
+        {
+          "hostname": "epaperdevice3.local",
+          "name": "Narrow Horizonal",
+          "role": "epaper kiosk"
+        },
+        {
+          "hostname": "epaperdevice4.local",
+          "name": "Alt TRMNL Display",
+          "role": "epaper kiosk"
+        },
+        {
+          "hostname": "epaperdevice5.local",
+          "name": "Vertical Monitor",
+          "role": "epaper kiosk"
+        },
+        {
+          "hostname": "epaperdevice6.local",
+          "name": "Narrow Vertical",
+          "role": "epaper kiosk"
+        },
+        {
+          "hostname": "jetsons",
+          "name": "Orin Jetson Nano",
+          "role": "jetson cluster"
+        },
+        {
+          "hostname": "imbpc",
+          "name": "IMB PC",
+          "role": "desktop host"
+        },
+        {
+          "hostname": "trs80",
+          "name": "TRS-80",
+          "role": "retro host"
+        }
+      ]
+    },
+    "20": {
+      "type": "missioncontrolconsole",
+      "title": "MISSION CONTROL CONSOLE",
+      "mission_name": "APOLLO 17 // TRANSLUNAR OPERATIONS",
+      "accent_rgb": [
+        255,
+        204,
+        132
+      ],
+      "refresh_hz": 60,
+      "portrait_layout": false,
+      "scanline_alpha": 0,
+      "noise_alpha": 0,
+      "vignette_strength": 0.0,
+      "console_rows": 4,
+      "console_cols": 7,
+      "anomaly_probability_per_min": 0.45,
+      "event_interval_range": [
+        1.6,
+        3.4
+      ],
+      "chart_count": 3,
+      "orbit_period_sec": 52.0,
+      "seed": 19691207
+    },
+    "21": {
+      "type": "corememorymatrix",
+      "title": "CORE MEMORY MATRIX",
+      "bank_name": "STACK 2 // COINCIDENT CURRENT STORE",
+      "accent_rgb": [
+        255,
+        174,
+        98
+      ],
+      "refresh_hz": 60,
+      "rows": 16,
+      "cols": 16,
+      "write_probability_per_sec": 1.0,
+      "read_probability_per_sec": 1.7,
+      "parity_fault_probability_per_min": 0.28,
+      "pulse_ttl": 1.0,
+      "scanline_alpha": 0,
+      "noise_alpha": 0,
+      "vignette_strength": 0.0,
+      "portrait_layout": false,
+      "seed": 19640315
+    },
+    "22": {
+      "type": "blinkenlights",
+      "computer_name": "PDP-9 CENTRAL PROCESSOR",
+      "subtitle": "COMPUTATION BAY // MAINTENANCE SHIFT B",
+      "panel_id": "BAY 03 / FRAME 02",
+      "ticker_text": "READY // PAPER TAPE ONLINE // CHANNEL B ACTIVE",
+      "led_color": "Amber",
+      "frame_rgb": [
+        196,
+        192,
+        176
+      ],
+      "label_rgb": [
+        232,
+        226,
+        214
+      ],
+      "panel_fill_rgb": [
+        10,
+        10,
+        10
+      ],
+      "columns": 3,
+      "registers_per_column": 8,
+      "register_labels": [
+        "CLK",
+        "IR",
+        "MAR",
+        "MDR",
+        "ACC",
+        "PC",
+        "LINK",
+        "IOCH",
+        "SENSE",
+        "INDEX",
+        "BANK",
+        "FIELD",
+        "STACK",
+        "SHIFT",
+        "TEST",
+        "SYNC",
+        "ALU",
+        "ADDR",
+        "DATA",
+        "EXAM",
+        "DEP",
+        "WAIT",
+        "STEP",
+        "EXEC"
+      ],
+      "status_labels": [
+        "RUN",
+        "MEM",
+        "I/O",
+        "TAPE",
+        "LOAD",
+        "CHK"
+      ],
+      "title_font_scale": 0.065,
+      "label_font_scale": 0.026,
+      "led_radius_scale": 0.013,
+      "pulse_speed": 2.6,
+      "burst_probability_per_sec": 0.34,
+      "burst_duration_range": [
+        0.7,
+        1.8
+      ],
+      "burst_registers_range": [
+        2,
+        5
+      ],
+      "burst_strength": 1.9,
+      "status_probability_per_sec": 0.9,
+      "row_group_size": 4
+    },
+    "23": {
+      "type": "basicprompt",
+      "title": "BASIC PROMPT",
+      "machine_name": "HOME COMPUTER BASIC V2",
+      "prompt": "READY.",
+      "palette": "amber",
+      "typing_cps": 34,
+      "cursor_blink_hz": 2.0,
+      "lines_on_screen": 26,
+      "max_chars_per_line": 34,
+      "seed": 19830211
+    },
+    "24": {
+      "type": "rbmkreactorsimulation",
+      "title": "REACTOR CONTROL SIMULATION",
+      "reactor_name": "RBMK-STYLE CORE // NIGHT TEST SEQUENCE",
+      "accent_rgb": [
+        255,
+        166,
+        98
+      ],
+      "refresh_hz": 60,
+      "rows": 12,
+      "cols": 12,
+      "loop_duration_sec": 38.0,
+      "portrait_layout": true,
+      "seed": 19860426
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "demo_console",
+  "design_resolution": [1920, 1080],
+  "panels": [
+    {"id": "left",   "origin": [0, 0],  "size": [5, 8], "fill_rgb": [26, 28, 33]},
+    {"id": "center", "origin": [5, 0],  "size": [6, 8], "fill_rgb": [30, 32, 37]},
+    {"id": "right",  "origin": [11, 0], "size": [4, 8], "fill_rgb": [26, 28, 33]}
+  ],
+  "controls": [
+    {"type": "scope",        "sprite": "SCOPE_V_1",          "panel": "left",  "at": [1, 0],
+     "wave": {"kind": "lissajous"}},
+    {"type": "gauge_round",  "sprite": "GAUGE_ROUND_SMALL_1", "panel": "left", "at": [0, 4],
+     "signal": {"kind": "random_walk", "period": 4.0}},
+    {"type": "gauge_round",  "sprite": "GAUGE_ROUND_SMALL_2", "panel": "left", "at": [1, 4]},
+    {"type": "gauge_round",  "sprite": "GAUGE_ROUND_SMALL_3", "panel": "left", "at": [2, 4]},
+    {"type": "gauge_round",  "sprite": "GAUGE_ROUND_SMALL_4", "panel": "left", "at": [3, 4]},
+    {"type": "meter_vu",     "sprite": "METER_VU_H_1",       "panel": "left",  "at": [1, 5]},
+    {"type": "lamp",         "sprite": "LED_LAMP_RED",       "panel": "left",  "at": [0, 6]},
+    {"type": "lamp",         "sprite": "LED_LAMP_GREEN",     "panel": "left",  "at": [1, 6]},
+    {"type": "lamp",         "sprite": "LED_LAMP_AMBER",     "panel": "left",  "at": [2, 6]},
+    {"type": "lamp",         "sprite": "LED_LAMP_BLUE",      "panel": "left",  "at": [3, 6]},
+    {"type": "rotary_knob",  "sprite": "ROTARY_KNOB_1",      "panel": "left",  "at": [0, 7]},
+    {"type": "rotary_knob",  "sprite": "ROTARY_KNOB_2",      "panel": "left",  "at": [1, 7]},
+    {"type": "toggle_switch", "sprite": "TOGGLE_SWITCH_1",   "panel": "left",  "at": [2, 7]},
+    {"type": "push_button",  "sprite": "PUSH_BUTTON_1",      "panel": "left",  "at": [3, 7]},
+
+    {"type": "scope",        "sprite": "SCOPE_H_1",          "panel": "center", "at": [1, 0]},
+    {"type": "digital_readout", "sprite": "READOUT_DIGITAL", "panel": "center", "at": [1, 2]},
+    {"type": "radar",        "sprite": "RADAR_ROUND",        "panel": "center", "at": [1, 3]},
+    {"type": "plate",        "sprite": "LABEL_PLATE_WIDE",   "panel": "center", "at": [1, 7]},
+
+    {"type": "nixie",        "sprite": "NIXIE_PAIR",         "panel": "right", "at": [1, 0]},
+    {"type": "keypad",       "sprite": "KEYPAD",             "panel": "right", "at": [1, 2]},
+    {"type": "clock",        "sprite": "CLOCK_FACE",         "panel": "right", "at": [1, 4]},
+    {"type": "tape_reel",    "sprite": "TAPE_REEL",          "panel": "right", "at": [1, 6]}
+  ]
+}

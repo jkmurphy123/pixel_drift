@@ -1,0 +1,311 @@
+{
+  "scenarios": [
+    {
+      "id": "us_first_strike",
+      "name": "US LAUNCHES FIRST",
+      "description": "Counterforce strike on missile fields. Massive retaliation follows.",
+      "default_pop_m": 5.0,
+      "default_yield_kt": 500,
+      "sides": {
+        "blue": {"label": "US", "color": [90, 200, 255]},
+        "red": {"label": "USSR", "color": [255, 77, 77]}
+      },
+      "waves": [
+        {
+          "at_s": 2.0, "side": "blue",
+          "launches": [
+            {"from": [48.4, -101.3], "to": [55.8, 37.6], "count": 6, "spread_km": 700,
+             "target": {"name": "MOSCOW", "pop_m": 12.0, "yield_kt": 500}},
+            {"from": [41.1, -95.9], "to": [56.8, 60.6], "count": 4, "spread_km": 600,
+             "target": {"name": "SVERDLOVSK", "pop_m": 4.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 18.0, "side": "red", "label": "RETALIATION",
+          "launches": [
+            {"from": [56.3, 44.0], "to": [40.7, -74.0], "count": 6, "spread_km": 600,
+             "target": {"name": "NEW YORK", "pop_m": 20.0, "yield_kt": 500}},
+            {"from": [62.0, 129.7], "to": [41.9, -87.6], "count": 4, "spread_km": 800,
+             "target": {"name": "CHICAGO", "pop_m": 9.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 34.0, "side": "blue", "label": "SECOND SALVO",
+          "launches": [
+            {"from": [37.8, -97.4], "to": [59.9, 30.3], "count": 5, "spread_km": 700,
+             "target": {"name": "LENINGRAD", "pop_m": 5.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 48.0, "side": "red", "label": "FINAL RESPONSE",
+          "launches": [
+            {"from": [55.0, 82.9], "to": [34.0, -118.2], "count": 6, "spread_km": 700,
+             "target": {"name": "LOS ANGELES", "pop_m": 13.0, "yield_kt": 500}}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "ussr_first_strike",
+      "name": "SOVIET UNION LAUNCHES FIRST",
+      "description": "Bolt from the blue on command centers. The answer is total.",
+      "default_pop_m": 5.0,
+      "default_yield_kt": 500,
+      "sides": {
+        "red": {"label": "USSR", "color": [255, 77, 77]},
+        "blue": {"label": "US", "color": [90, 200, 255]}
+      },
+      "waves": [
+        {
+          "at_s": 2.0, "side": "red",
+          "launches": [
+            {"from": [56.3, 44.0], "to": [38.9, -77.0], "count": 6, "spread_km": 600,
+             "target": {"name": "WASHINGTON", "pop_m": 6.0, "yield_kt": 500}},
+            {"from": [62.0, 129.7], "to": [36.9, -76.3], "count": 4, "spread_km": 500,
+             "target": {"name": "NORFOLK", "pop_m": 2.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 18.0, "side": "blue", "label": "RETALIATION",
+          "launches": [
+            {"from": [48.4, -101.3], "to": [55.8, 37.6], "count": 6, "spread_km": 700,
+             "target": {"name": "MOSCOW", "pop_m": 12.0, "yield_kt": 500}},
+            {"from": [41.1, -95.9], "to": [59.9, 30.3], "count": 4, "spread_km": 700,
+             "target": {"name": "LENINGRAD", "pop_m": 5.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 34.0, "side": "red", "label": "SECOND STRIKE",
+          "launches": [
+            {"from": [55.0, 82.9], "to": [34.0, -118.2], "count": 5, "spread_km": 700,
+             "target": {"name": "LOS ANGELES", "pop_m": 13.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 48.0, "side": "blue", "label": "FINAL SALVO",
+          "launches": [
+            {"from": [37.8, -97.4], "to": [43.1, 131.9], "count": 4, "spread_km": 600,
+             "target": {"name": "VLADIVOSTOK", "pop_m": 1.0, "yield_kt": 500}}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "rogue_nation",
+      "name": "ROGUE NATION LAUNCHES FIRST",
+      "description": "A small arsenal, used once. The response is disproportionate.",
+      "default_pop_m": 3.0,
+      "default_yield_kt": 200,
+      "sides": {
+        "red": {"label": "ROGUE STATE", "color": [255, 77, 77]},
+        "blue": {"label": "US-LED COALITION", "color": [90, 200, 255]}
+      },
+      "waves": [
+        {
+          "at_s": 2.0, "side": "red",
+          "launches": [
+            {"from": [39.0, 125.7], "to": [37.5, 127.0], "count": 3, "spread_km": 200,
+             "target": {"name": "SEOUL", "pop_m": 10.0, "yield_kt": 150}}
+          ]
+        },
+        {
+          "at_s": 14.0, "side": "blue", "label": "RESPONSE",
+          "launches": [
+            {"from": [36.0, 129.0], "to": [39.0, 125.7], "count": 6, "spread_km": 300, "flight_s": 6,
+             "target": {"name": "PYONGYANG", "pop_m": 3.0, "yield_kt": 400}}
+          ]
+        },
+        {
+          "at_s": 24.0, "side": "red", "label": "LAST CARD",
+          "launches": [
+            {"from": [39.5, 127.0], "to": [35.7, 139.7], "count": 2, "spread_km": 300,
+             "target": {"name": "TOKYO", "pop_m": 14.0, "yield_kt": 150}}
+          ]
+        },
+        {
+          "at_s": 36.0, "side": "blue", "label": "OVERWHELMING RESPONSE",
+          "launches": [
+            {"from": [36.0, 129.0], "to": [39.0, 125.7], "count": 10, "spread_km": 400, "flight_s": 6,
+             "target": {"name": "PYONGYANG", "pop_m": 3.0, "yield_kt": 400}}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "accidental_launch",
+      "name": "ACCIDENTAL LAUNCH",
+      "description": "One radar ghost. One mistake. Fail-safes fail all the way down.",
+      "default_pop_m": 5.0,
+      "default_yield_kt": 500,
+      "sides": {
+        "red": {"label": "USSR", "color": [255, 77, 77]},
+        "blue": {"label": "US", "color": [90, 200, 255]}
+      },
+      "waves": [
+        {
+          "at_s": 2.0, "side": "red", "label": "ACCIDENTAL LAUNCH",
+          "launches": [
+            {"from": [62.0, 40.0], "to": [38.9, -77.0], "count": 1, "spread_km": 100,
+             "target": {"name": "WASHINGTON", "pop_m": 6.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 16.0, "side": "blue", "label": "FAIL-SAFE FAILS — RETALIATION",
+          "launches": [
+            {"from": [48.4, -101.3], "to": [55.8, 37.6], "count": 6, "spread_km": 700,
+             "target": {"name": "MOSCOW", "pop_m": 12.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 32.0, "side": "red", "label": "MISTAKEN FOR FIRST STRIKE",
+          "launches": [
+            {"from": [56.3, 44.0], "to": [40.7, -74.0], "count": 6, "spread_km": 600,
+             "target": {"name": "NEW YORK", "pop_m": 20.0, "yield_kt": 500}},
+            {"from": [62.0, 129.7], "to": [41.9, -87.6], "count": 5, "spread_km": 800,
+             "target": {"name": "CHICAGO", "pop_m": 9.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 48.0, "side": "blue", "label": "FINAL SALVO",
+          "launches": [
+            {"from": [37.8, -97.4], "to": [59.9, 30.3], "count": 5, "spread_km": 700,
+             "target": {"name": "LENINGRAD", "pop_m": 5.0, "yield_kt": 500}}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "submarine_strike",
+      "name": "SUBMARINE FIRST STRIKE",
+      "description": "Short flight times from off the coast. No warning at all.",
+      "default_pop_m": 5.0,
+      "default_yield_kt": 400,
+      "sides": {
+        "blue": {"label": "US SSBN", "color": [90, 200, 255]},
+        "red": {"label": "USSR SSBN", "color": [255, 77, 77]}
+      },
+      "waves": [
+        {
+          "at_s": 2.0, "side": "blue",
+          "launches": [
+            {"from": [55.0, -30.0], "to": [55.8, 37.6], "count": 8, "spread_km": 500, "flight_s": 7,
+             "target": {"name": "MOSCOW", "pop_m": 12.0, "yield_kt": 400}},
+            {"from": [30.0, 135.0], "to": [43.1, 131.9], "count": 4, "spread_km": 400, "flight_s": 6,
+             "target": {"name": "VLADIVOSTOK", "pop_m": 1.0, "yield_kt": 400}}
+          ]
+        },
+        {
+          "at_s": 14.0, "side": "red", "label": "SSBN RESPONSE",
+          "launches": [
+            {"from": [40.0, -60.0], "to": [40.7, -74.0], "count": 8, "spread_km": 500, "flight_s": 6,
+             "target": {"name": "NEW YORK", "pop_m": 20.0, "yield_kt": 400}},
+            {"from": [45.0, 155.0], "to": [32.7, -117.1], "count": 6, "spread_km": 500, "flight_s": 7,
+             "target": {"name": "SAN DIEGO", "pop_m": 3.0, "yield_kt": 400}}
+          ]
+        },
+        {
+          "at_s": 26.0, "side": "blue", "label": "REMAINING BOATS FIRE",
+          "launches": [
+            {"from": [60.0, -20.0], "to": [59.9, 30.3], "count": 6, "spread_km": 500, "flight_s": 6,
+             "target": {"name": "LENINGRAD", "pop_m": 5.0, "yield_kt": 400}}
+          ]
+        },
+        {
+          "at_s": 36.0, "side": "red", "label": "FINAL SALVO",
+          "launches": [
+            {"from": [35.0, -65.0], "to": [38.9, -77.0], "count": 6, "spread_km": 400, "flight_s": 6,
+             "target": {"name": "WASHINGTON", "pop_m": 6.0, "yield_kt": 400}}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "full_escalation",
+      "name": "GLOBAL THERMONUCLEAR WAR",
+      "description": "Every arsenal. Every target. The finale.",
+      "default_pop_m": 6.0,
+      "default_yield_kt": 600,
+      "sides": {
+        "red": {"label": "USSR", "color": [255, 77, 77]},
+        "blue": {"label": "US-NATO", "color": [90, 200, 255]},
+        "amber": {"label": "PRC", "color": [255, 180, 60]}
+      },
+      "waves": [
+        {
+          "at_s": 2.0, "side": "red",
+          "launches": [
+            {"from": [56.3, 44.0], "to": [40.7, -74.0], "count": 12, "spread_km": 700,
+             "target": {"name": "NEW YORK", "pop_m": 20.0, "yield_kt": 600}},
+            {"from": [62.0, 129.7], "to": [38.9, -77.0], "count": 10, "spread_km": 800,
+             "target": {"name": "WASHINGTON", "pop_m": 6.0, "yield_kt": 600}},
+            {"from": [55.0, 82.9], "to": [34.0, -118.2], "count": 10, "spread_km": 800,
+             "target": {"name": "LOS ANGELES", "pop_m": 13.0, "yield_kt": 600}}
+          ]
+        },
+        {
+          "at_s": 4.0, "side": "blue",
+          "launches": [
+            {"from": [48.4, -101.3], "to": [55.8, 37.6], "count": 12, "spread_km": 700,
+             "target": {"name": "MOSCOW", "pop_m": 12.0, "yield_kt": 600}},
+            {"from": [41.1, -95.9], "to": [59.9, 30.3], "count": 8, "spread_km": 700,
+             "target": {"name": "LENINGRAD", "pop_m": 5.0, "yield_kt": 600}},
+            {"from": [37.8, -97.4], "to": [56.8, 60.6], "count": 8, "spread_km": 700,
+             "target": {"name": "SVERDLOVSK", "pop_m": 4.0, "yield_kt": 600}}
+          ]
+        },
+        {
+          "at_s": 16.0, "side": "amber", "label": "PRC ENTERS THE WAR",
+          "launches": [
+            {"from": [40.0, 113.0], "to": [43.1, 131.9], "count": 6, "spread_km": 500,
+             "target": {"name": "VLADIVOSTOK", "pop_m": 1.0, "yield_kt": 500}},
+            {"from": [38.0, 112.0], "to": [37.6, -122.4], "count": 6, "spread_km": 700,
+             "target": {"name": "SAN FRANCISCO", "pop_m": 5.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 24.0, "side": "red", "label": "EUROPEAN FRONT",
+          "launches": [
+            {"from": [56.3, 44.0], "to": [51.5, -0.1], "count": 8, "spread_km": 500,
+             "target": {"name": "LONDON", "pop_m": 9.0, "yield_kt": 500}},
+            {"from": [56.3, 44.0], "to": [48.9, 2.4], "count": 8, "spread_km": 500,
+             "target": {"name": "PARIS", "pop_m": 11.0, "yield_kt": 500}},
+            {"from": [56.3, 44.0], "to": [52.5, 13.4], "count": 6, "spread_km": 500,
+             "target": {"name": "BERLIN", "pop_m": 4.0, "yield_kt": 500}}
+          ]
+        },
+        {
+          "at_s": 34.0, "side": "blue", "label": "PACIFIC SALVO",
+          "launches": [
+            {"from": [30.0, 135.0], "to": [39.9, 116.4], "count": 8, "spread_km": 600, "flight_s": 8,
+             "target": {"name": "BEIJING", "pop_m": 21.0, "yield_kt": 600}},
+            {"from": [30.0, 135.0], "to": [31.2, 121.5], "count": 6, "spread_km": 600, "flight_s": 8,
+             "target": {"name": "SHANGHAI", "pop_m": 25.0, "yield_kt": 600}}
+          ]
+        },
+        {
+          "at_s": 46.0, "side": "red", "label": "EVERYTHING REMAINING",
+          "launches": [
+            {"from": [62.0, 129.7], "to": [41.9, -87.6], "count": 10, "spread_km": 800,
+             "target": {"name": "CHICAGO", "pop_m": 9.0, "yield_kt": 600}},
+            {"from": [55.0, 82.9], "to": [29.8, -95.4], "count": 8, "spread_km": 800,
+             "target": {"name": "HOUSTON", "pop_m": 7.0, "yield_kt": 600}}
+          ]
+        },
+        {
+          "at_s": 56.0, "side": "blue", "label": "EVERYTHING REMAINING",
+          "launches": [
+            {"from": [48.4, -101.3], "to": [55.0, 73.4], "count": 10, "spread_km": 700,
+             "target": {"name": "OMSK", "pop_m": 1.0, "yield_kt": 600}},
+            {"from": [41.1, -95.9], "to": [55.8, 49.1], "count": 8, "spread_km": 700,
+             "target": {"name": "KAZAN", "pop_m": 1.0, "yield_kt": 600}}
+          ]
+        }
+      ]
+    }
+  ]
+}

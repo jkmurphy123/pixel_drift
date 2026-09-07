@@ -1,0 +1,104 @@
+{
+  "items": [
+    {
+      "file": "ada_lovelace.jpg",
+      "title": "Ada Lovelace",
+      "description": "Wrote the first published algorithm intended for a machine, and imagined how computers could create more than numbers."
+    },
+    {
+      "file": "charles_babbage.jpg",
+      "title": "Charles Babbage",
+      "description": "Designed the Analytical Engine, a programmable mechanical computer that inspired generations of computing ideas."
+    },
+    {
+      "file": "alan_turing.jpg",
+      "title": "Alan Turing",
+      "description": "Defined the theoretical model of computation and helped break the Enigma cipher during World War II."
+    },
+    {
+      "file": "grace_hopper.jpg",
+      "title": "Grace Hopper",
+      "description": "Pioneered compilers and helped shape COBOL, making programming more accessible and portable."
+    },
+    {
+      "file": "john_von_neumann.jpg",
+      "title": "John von Neumann",
+      "description": "Formulated the stored-program architecture that underlies most modern computers."
+    },
+    {
+      "file": "claude_shannon.jpg",
+      "title": "Claude Shannon",
+      "description": "Founded information theory and showed how digital circuits could implement logic."
+    },
+    {
+      "file": "edsger_dijkstra.jpg",
+      "title": "Edsger Dijkstra",
+      "description": "Advanced structured programming and created foundational graph algorithms."
+    },
+    {
+      "file": "donald_knuth.jpg",
+      "title": "Donald Knuth",
+      "description": "Authored The Art of Computer Programming and shaped algorithm analysis and typographic computing."
+    },
+    {
+      "file": "barbara_liskov.jpg",
+      "title": "Barbara Liskov",
+      "description": "Led work on data abstraction, the Liskov Substitution Principle, and programming language design."
+    },
+    {
+      "file": "tim_berners_lee.jpg",
+      "title": "Tim Berners-Lee",
+      "description": "Invented the World Wide Web, including HTTP, HTML, and the first web browser."
+    },
+    {
+      "file": "margaret_hamilton.jpg",
+      "title": "Margaret Hamilton",
+      "description": "Directed Apollo flight software engineering and popularized the term 'software engineering'."
+    },
+    {
+      "file": "dennis_ritchie.jpg",
+      "title": "Dennis Ritchie",
+      "description": "Created the C programming language and co-developed the UNIX operating system."
+    },
+    {
+      "file": "ken_thompson.jpg",
+      "title": "Ken Thompson",
+      "description": "Co-created UNIX and wrote the B language, a direct ancestor of C."
+    },
+    {
+      "file": "john_mccarthy.jpg",
+      "title": "John McCarthy",
+      "description": "Coined the term 'artificial intelligence' and created the Lisp programming language."
+    },
+    {
+      "file": "marvin_minsky.jpg",
+      "title": "Marvin Minsky",
+      "description": "Co-founded the MIT AI Lab and contributed to early AI theory and robotics."
+    },
+    {
+      "file": "george_boole.jpg",
+      "title": "George Boole",
+      "description": "Developed Boolean algebra, the mathematical foundation of digital logic."
+    },
+    {
+      "file": "alonzo_church.jpg",
+      "title": "Alonzo Church",
+      "description": "Helped define computability with the lambda calculus and the Church-Turing thesis."
+    },
+    {
+      "file": "niklaus_wirth.jpg",
+      "title": "Niklaus Wirth",
+      "description": "Designed Pascal and Modula, advancing language design and structured programming."
+    },
+    {
+      "file": "seymour_cray.jpg",
+      "title": "Seymour Cray",
+      "description": "Architected groundbreaking supercomputers and pushed high-performance computing forward."
+    },
+    {
+      "file": "frances_allen.jpg",
+      "title": "Frances Allen",
+      "description": "Pioneered compiler optimization and parallel computing; first woman to win the Turing Award."
+    }
+  ]
+}

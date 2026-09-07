@@ -1,0 +1,27 @@
+{
+  "scenes": [
+    {
+      "name": "night_crossing",
+      "comment": "Ship tossing on ocean waves — the canonical parallax demo",
+      "base_amplitude": 80,
+      "layers": [
+        { "image": "sky_night.png",  "x": 0.50, "y": 0.50, "motion": "static" },
+        { "image": "waves_far.png",  "x": 0.50, "y": 0.72, "motion": "pan_right" },
+        { "image": "boat.png",       "x": 0.45, "y": 0.60, "motion": "bob", "speed": 0.7 },
+        { "image": "waves_mid.png",  "x": 0.50, "y": 0.82, "motion": "pan_left" },
+        { "image": "waves_near.png", "x": 0.50, "y": 0.95, "motion": "pan_right", "amplitude_scale": 1.3 }
+      ]
+    },
+    {
+      "name": "forest_drive",
+      "comment": "Hills and treelines sliding past at different depths",
+      "layers": [
+        { "image": "sky_day.png",    "x": 0.50, "y": 0.50, "motion": "static" },
+        { "image": "hills_far.png",  "x": 0.50, "y": 0.70, "motion": "pan_left" },
+        { "image": "lake.png",       "x": 0.50, "y": 0.80, "motion": "sway", "speed": 0.5 },
+        { "image": "trees_mid.png",  "x": 0.50, "y": 0.88, "motion": "pan_left" },
+        { "image": "grass_near.png", "x": 0.50, "y": 0.97, "motion": "pan_left", "amplitude_scale": 1.2 }
+      ]
+    }
+  ]
+}

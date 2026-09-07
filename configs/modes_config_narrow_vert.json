@@ -1,0 +1,550 @@
+{
+	"modes": {
+		"0": {
+			"type": "SystemInformation",
+			"refresh_hz": 2.0,
+			"show_seconds": false
+		},
+		"1": {
+			"type": "galacticnavigation",
+			"sector_name": "SECTOR: VELA-IX",
+			"waypoint_count": 7,
+			"star_count": 260,
+			"refresh_hz": 60,
+			"accent_rgb": [
+				80,
+				200,
+				255
+			],
+			"grid_alpha": 70,
+			"scanline_alpha": 18,
+			"jump_interval_sec": 14.0
+		},
+		"2": {
+			"type": "deepspacesignaldecoder",
+			"title": "RELAY INTERCEPT CONSOLE",
+			"seed": 42,
+			"accent_rgb": [
+				180,
+				255,
+				140
+			],
+			"scanline_alpha": 12,
+			"noise_alpha": 22,
+			"waterfall_bins": 128,
+			"waterfall_speed": 300,
+			"message_rate_cps": 18,
+			"lock_probability_per_min": 0.8,
+			"lock_duration_range": [
+				10.0,
+				22.0
+			],
+			"show_hex": false,
+			"show_glyphs": true
+		},
+		"3": {
+			"type": "retrocrthackerterminal",
+			"title": "NEON//SHELL v2.7",
+			"palette": "green",
+			"prompt": "root@station:/#",
+			"typing_cps": 44,
+			"cursor_blink_hz": 2.0,
+			"glitch_probability_per_min": 1.2,
+			"jitter_px": 2,
+			"scanline_alpha": 18,
+			"noise_alpha": 14,
+			"crt_curvature": 0.0,
+			"crt_vignette": 0.38,
+			"crt_chroma": 0.10
+		},
+		"4": {
+			"type": "retrocrthackerterminal",
+			"title": "AMBERLINK CONSOLE",
+			"palette": "amber",
+			"prompt": "ops@uplink:~$",
+			"typing_cps": 28,
+			"cursor_blink_hz": 1.6,
+			"glitch_probability_per_min": 0.6,
+			"jitter_px": 1,
+			"scanline_alpha": 14,
+			"noise_alpha": 10,
+			"crt_curvature": 0.0,
+			"crt_vignette": 0.30,
+			"crt_chroma": 0.06,
+			"seed": 1337
+		},
+		"5": {
+			"type": "cryopodstatuswall",
+			"title": "CRYOGENIC POD STATUS",
+			"accent_rgb": [
+				90,
+				220,
+				255
+			],
+			"refresh_hz": 60,
+			"num_pods": 14,
+			"columns_portrait": 2,
+			"columns_landscape": 3,
+			"pod_spacing_scale": 0.030,
+			"frost_particle_rate": 55,
+			"alarm_probability_per_min": 0.8,
+			"label_font_scale": 0.015,
+			"value_font_scale": 0.015,
+			"seed": 424242
+		},
+		"6": {
+			"type": "autonomousdronefleettracker",
+			"title": "AUTONOMOUS DRONE TRACKER",
+			"sector_name": "SECTOR: AURORA YARD",
+			"accent_rgb": [
+				90,
+				220,
+				255
+			],
+			"refresh_hz": 60,
+			"drone_count": 26,
+			"show_event_log": true,
+			"map_margin_scale": 0.05,
+			"scanline_alpha": 14,
+			"noise_alpha": 10,
+			"crt_vignette": 0.28,
+			"offline_probability_per_min": 0.6,
+			"return_probability_per_min": 1.0,
+			"charge_time_range": [
+				6.0,
+				14.0
+			],
+			"seed": 777001
+		},
+		"7": {
+			"type": "alienbiometricscanner",
+			"title": "ALIEN BIOMETRIC SCANNER",
+			"accent_rgb": [
+				170,
+				255,
+				200
+			],
+			"refresh_hz": 60,
+			"scan_speed": 0.42,
+			"scan_band_height": 0.10,
+			"target_switch_interval_range": [
+				6.0,
+				14.0
+			],
+			"alert_probability_per_min": 0.55,
+			"scanline_alpha": 12,
+			"noise_alpha": 10,
+			"vignette_strength": 0.30,
+			"show_waveform": true,
+			"seed": 121212
+		},
+		"8": {
+			"type": "forgottenspacestationdirectory",
+			"title": "FORGOTTEN STATION DIRECTORY",
+			"station_name": "STATION: EIDOLON-9",
+			"accent_rgb": [
+				200,
+				255,
+				210
+			],
+			"refresh_hz": 60,
+			"portrait_mode": true,
+			"rows_visible": 52,
+			"scroll_speed": 0.4,
+			"glitch_probability_per_min": 1.2,
+			"offline_probability_per_min": 0.7,
+			"announcement_interval_range": [
+				9.0,
+				18.0
+			],
+			"scanline_alpha": 10,
+			"noise_alpha": 10,
+			"vignette_strength": 0.32,
+			"seed": 606060,
+			"font_scale": 0.8
+		},
+		"9": {
+			"type": "retrocomputermemoryvisualizer",
+			"title": "RETRO COMPUTER MEMORY VISUALIZER",
+			"accent_rgb": [
+				90,
+				220,
+				255
+			],
+			"refresh_hz": 60,
+			"memory_kb": 256,
+			"block_kb": 4,
+			"alloc_rate": 0.9,
+			"free_rate": 0.55,
+			"gc_probability_per_min": 0.45,
+			"show_hex_dump": true,
+			"portrait_columns": 2,
+			"scanline_alpha": 10,
+			"noise_alpha": 10,
+			"vignette_strength": 0.30,
+			"seed": 888123
+		},
+		"10": {
+			"type": "machinedreamscape",
+			"title": "MACHINE DREAMSCAPE",
+			"accent_rgb": [
+				170,
+				255,
+				230
+			],
+			"refresh_hz": 60,
+			"portrait_layout": true,
+			"layer_count": 4,
+			"node_count": 42,
+			"drift_speed": 0.22,
+			"connectivity": 0.18,
+			"bloom_strength": 0.55,
+			"show_whispers": true,
+			"whisper_interval_range": [
+				6.0,
+				14.0
+			],
+			"scanline_alpha": 10,
+			"noise_alpha": 10,
+			"vignette_strength": 0.32,
+			"seed": 909090
+		},
+		"11": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"12": {
+			"type": "spaceelevatortrafficcontrol",
+			"title": "SPACE ELEVATOR TRAFFIC CONTROL",
+			"site_name": "SITE: KILIMANJARO ANCHOR",
+			"accent_rgb": [
+				170,
+				255,
+				230
+			],
+			"refresh_hz": 60,
+			"portrait_layout": true,
+			"car_count": 5,
+			"car_speed_range": [
+				0.03,
+				0.10
+			],
+			"dwell_time_range": [
+				2.0,
+				6.0
+			],
+			"queue_rate_per_min": 1.2,
+			"weather_alert_probability_per_min": 0.55,
+			"show_log": true,
+			"scanline_alpha": 10,
+			"noise_alpha": 10,
+			"vignette_strength": 0.30,
+			"seed": 121212
+		},
+		"13": {
+			"type": "alienlanguagerosettaconsole",
+			"title": "ALIEN LANGUAGE ROSETTA CONSOLE",
+			"site_name": "LINGUISTICS BAY: ROSETTA NODE-7",
+			"accent_rgb": [
+				200,
+				255,
+				210
+			],
+			"refresh_hz": 60,
+			"portrait_layout": true,
+			"rows_visible": 31,
+			"decode_rate": 0.9,
+			"mutation_rate": 0.35,
+			"confidence_drift": 0.20,
+			"lock_probability_per_min": 0.55,
+			"show_log": true,
+			"scanline_alpha": 10,
+			"noise_alpha": 10,
+			"vignette_strength": 0.30,
+			"seed": 707070
+		},
+		"14": {
+			"type": "dnasequencevisualizer",
+			"title": "GENETIC SEQUENCER: ANALYZER-X1",
+			"accent_rgb": [
+				150,
+				255,
+				100
+			],
+			"refresh_hz": 60,
+			"scroll_speed": 4.0,
+			"helix_rotation_speed": 1.5,
+			"show_markers": true,
+			"marker_probability": 0.05,
+			"scanline_alpha": 15,
+			"noise_alpha": 12,
+			"vignette_strength": 0.35,
+			"seed": 888222
+		},
+		"15": {
+			"type": "chat_replay",
+			"title": "CHARACTER CHAT REPLAY",
+			"conversations_folder": "/home/ubuntu/narrow_slideshow/mode_manager/modes/conversations",
+			"thumbnails_folder": "/home/ubuntu/narrow_slideshow/mode_manager/images",
+			"font_scale": 1.0,
+			"typing_cps": 45,
+			"min_pause_s": 0.6,
+			"max_pause_s": 1.8,
+			"typing_indicator_min_s": 0.8,
+			"typing_indicator_max_s": 2.6,
+			"end_pause_s": 3.0,
+			"bubble_radius": 18,
+			"bubble_max_width_frac": 0.72,
+			"bubble_alpha": 210,
+			"bubble_outline_alpha": 90,
+			"show_timestamp": true,
+			"timestamp_format": "%H:%M",
+			"bg_rgb": [
+				0,
+				0,
+				0
+			],
+			"panel_outline_alpha": 120,
+			"noise_alpha": 8
+		},
+		"17": {
+			"type": "fantasynews",
+			"stories_folder": "/home/ubuntu/narrow_slideshow/vert_images/news",
+			"image_folder": "/home/ubuntu/narrow_slideshow/vert_images/news",
+			"duration": 45,
+			"show_time": true,
+			"show_seconds": false,
+			"time_format": "%I:%M %p",
+			"headline_font_scale": 0.050,
+			"body_font_scale": 0.030,
+			"time_font_scale": 0.12,
+			"overlay_alpha": 90,
+			"dim_bg": 40,
+			"max_body_chars": 560,
+			"font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+		},
+		"18": {
+			"type": "alienstarmapcartographer",
+			"title": "ALIEN STAR MAP CARTOGRAPHER",
+			"subtitle": "SECTOR ARCHIVE: VELA / CHART PASS: 17-B",
+			"accent_rgb": [
+				180,
+				255,
+				235
+			],
+			"refresh_hz": 60,
+			"star_count": 900,
+			"near_star_frac": 0.18,
+			"constellation_count": 11,
+			"constellation_links": 4,
+			"drift_speed": 0.020,
+			"parallax_strength": 0.85,
+			"twinkle_strength": 0.55,
+			"zoom_pulse_strength": 0.05,
+			"grid_alpha": 28,
+			"ring_alpha": 40,
+			"label_density": 0.35,
+			"stamp_probability_per_min": 0.50,
+			"scanline_alpha": 10,
+			"noise_alpha": 8,
+			"vignette_strength": 0.28,
+			"seed": 909090
+		},
+		"19": {
+			"type": "retroaithoughtstream",
+			"title": "RETRO AI THOUGHT STREAM",
+			"subtitle": "CORE DIAGNOSTIC CHANNEL / INTERNAL ONLY",
+			"accent_rgb": [
+				255,
+				220,
+				150
+			],
+			"text_rgb": [
+				220,
+				220,
+				220
+			],
+			"dim_rgb": [
+				140,
+				140,
+				140
+			],
+			"font_scale": 1.0,
+			"lines_visible": 22,
+			"scroll_speed_lps": 5.5,
+			"thought_rate_per_min": 22,
+			"glitch_rate_per_min": 2.5,
+			"poem_rate_per_min": 1.3,
+			"wrongness_rate_per_min": 3.0,
+			"show_timestamps": true,
+			"timestamp_format": "%H:%M:%S",
+			"left_margin": 40,
+			"top_margin": 36,
+			"seed": 31337
+		},
+		"20": {
+			"type": "aiethicscompliancedashboard",
+			"title": "AI ETHICS COMPLIANCE DASHBOARD",
+			"subtitle": "AUDIT CHANNEL / NON-INTERVENTIVE OBSERVATION",
+			"accent_rgb": [
+				180,
+				255,
+				235
+			],
+			"text_rgb": [
+				220,
+				220,
+				220
+			],
+			"dim_rgb": [
+				140,
+				140,
+				140
+			],
+			"warn_rgb": [
+				255,
+				180,
+				180
+			],
+			"font_scale": 1.0,
+			"slider_count": 9,
+			"update_rate_hz": 8,
+			"volatility": 0.22,
+			"compliance_target": 0.82,
+			"drift_strength": 0.06,
+			"show_events": true,
+			"event_rate_per_min": 5.5,
+			"graph_history_seconds": 70,
+			"seed": 515151
+		},
+		"21": {
+			"type": "hackerbbsfeed",
+			"title": "ACCESSING BBS NODE // 1987",
+			"accent_rgb": [
+				80,
+				255,
+				120
+			],
+			"refresh_hz": 60,
+			"typing_cps": 42,
+			"message_interval_sec": 1.5,
+			"max_messages": 18,
+			"seed": 13371337
+		},
+		"22": {
+			"type": "conway_life",
+			"title": "CONWAY'S GAME OF LIFE",
+			"update_hz": 12.0,
+			"random_fill": 0.30,
+			"wrap": true,
+			"reset_if_static_steps": 80,
+			"reset_interval_sec": 110,
+			"cells_on_short_side": 72,
+			"alive_rgb": [
+				170,
+				255,
+				210
+			],
+			"dead_rgb": [
+				0,
+				0,
+				0
+			],
+			"show_grid": false
+		},
+		"23": {
+			"type": "galtonboard",
+			"title": "GALTON BOARD",
+			"pin_rows": 12,
+			"balls": 320,
+			"ball_color": "random",
+			"drop_rate": 45,
+			"drop_one_at_time": true,
+			"wait_after_sec": 10
+		},
+		"24": {
+			"type": "networkstatuswall",
+			"title": "HOME NETWORK STATUS WALL",
+			"subtitle": "raspberry pi and workstation reachability",
+			"accent_rgb": [
+				110,
+				230,
+				255
+			],
+			"columns_portrait": 2,
+			"columns_landscape": 3,
+			"panel_spacing_scale": 0.026,
+			"refresh_hz": 60,
+			"poll_interval_sec": 15,
+			"ping_timeout_sec": 1.5,
+			"scanline_alpha": 10,
+			"noise_alpha": 8,
+			"vignette_strength": 0.24,
+			"seed": 424242,
+			"devices": [
+				{
+					"hostname": "epaperdevice1.local",
+					"name": "TRMNL Display",
+					"role": "epaper kiosk"
+				},
+				{
+					"hostname": "epaperdevice2.local",
+					"name": "AI News Display",
+					"role": "epaper kiosk"
+				},
+				{
+					"hostname": "epaperdevice3.local",
+					"name": "Narrow Horizonal",
+					"role": "epaper kiosk"
+				},
+				{
+					"hostname": "epaperdevice4.local",
+					"name": "Alt TRMNL Display",
+					"role": "epaper kiosk"
+				},
+				{
+					"hostname": "epaperdevice5.local",
+					"name": "Vertical Monitor",
+					"role": "epaper kiosk"
+				},
+				{
+					"hostname": "epaperdevice6.local",
+					"name": "Narrow Vertical",
+					"role": "epaper kiosk"
+				},
+				{
+					"hostname": "jetsons",
+					"name": "Orin Jetson Nano",
+					"role": "jetson cluster"
+				},
+				{
+					"hostname": "imbpc",
+					"name": "IMB PC",
+					"role": "desktop host"
+				},
+				{
+					"hostname": "trs80",
+					"name": "TRS-80",
+					"role": "retro host"
+				}
+			]
+		}
+	}
+}

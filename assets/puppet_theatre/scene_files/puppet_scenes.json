@@ -1,0 +1,69 @@
+{
+  "characters": {
+    "ALICE": {
+      "default_emotion": "CALM",
+      "scale": 1.0
+    },
+    "BOB": {
+      "default_emotion": "HAPPY",
+      "scale": 0.95
+    },
+    "SLAM": {
+      "default_emotion": "DEFAULT",
+      "scale": 0.7
+    }
+  },
+  "positions": {
+    "stage_left": {"x": 0.18, "y": 0.72},
+    "stage_center": {"x": 0.50, "y": 0.72},
+    "stage_right": {"x": 0.82, "y": 0.72}
+  },
+  "scenes": [
+    {
+      "title": "The Argument",
+      "description": "Alice confronts Bob about his plans.",
+      "background_rgb": [12, 14, 24],
+      "transition_in": {"type": "fade", "duration": 1.0},
+      "transition_out": {"type": "fade", "duration": 1.0},
+      "layers": [
+        {"image": "wheat_field.png", "motion": "static"},
+        {"image": null, "motion": "static"},
+        {"image": "wheat_right.png", "motion": "static"},
+        {"image": "wheat_left.png", "motion": "static"}
+      ],
+      "script": [
+        {"character": "ALICE", "transition": "ENTER_STAGE_LEFT",
+         "emotion": "ANGRY", "mouth": "YELLING",
+         "dialogue": "What are you talking about?!!!!"},
+        {"character": "BOB", "transition": "ENTER_STAGE_RIGHT",
+         "emotion": "CALM", "mouth": "SPEAKING",
+         "dialogue": "I told you I had plans tonight."},
+        {"character": "ALICE", "transition": "EXIT_STAGE_LEFT",
+         "emotion": "ANGRY", "mouth": "SILENT"},
+        {"character": "SLAM", "transition": "POPS_UP_STAGE_LEFT",
+         "emotion": "DEFAULT", "mouth": "SILENT"}
+      ]
+    },
+    {
+      "title": "The Reconciliation",
+      "description": "Bob tries to make peace.",
+      "background_rgb": [14, 16, 28],
+      "transition_in": {"type": "fade", "duration": 1.0},
+      "transition_out": {"type": "fade", "duration": 1.0},
+      "layers": [
+        {"image": "wheat_field.png", "motion": "static"},
+        {"image": null, "motion": "static"},
+        {"image": "wheat_right.png", "motion": "static"},
+        {"image": "wheat_left.png", "motion": "static"}
+      ],
+      "script": [
+        {"character": "BOB", "transition": "MOVE_TO_STAGE_CENTER",
+         "emotion": "CALM", "mouth": "SPEAKING",
+         "dialogue": "Look, I'm sorry. Can we talk?"},
+        {"character": "ALICE", "transition": "ENTER_STAGE_LEFT",
+         "emotion": "DEFAULT", "mouth": "SPEAKING",
+         "dialogue": "Fine. But you owe me dinner."}
+      ]
+    }
+  ]
+}

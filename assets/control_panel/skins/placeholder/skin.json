@@ -1,0 +1,10 @@
+{
+  "name": "placeholder",
+  "image": "sheet.png",
+  "background_rgb": [
+    18,
+    20,
+    24
+  ],
+  "comment": "Auto-generated test skin. Geometry comes from the shared assets/control_panel/sprite_defs.json \u2014 regenerate with scripts/make_placeholder_skin.py after editing sprite defs."
+}
