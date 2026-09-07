@@ -12,6 +12,8 @@
 #   - dwell_seconds         seconds per book (default: 180)
 #   - match_by              "filename" uses cover_image field; "index" uses alpha sort
 #   - portrait_layout       if True, stack cover above text panel (default: False)
+#   - portrait_cover_height_frac  fraction of screen height for cover in portrait
+#                                 (default: 0.34, roughly 75% of the 0.45 landscape-area)
 #   - placeholder_color     [r,g,b] base color for generated missing covers
 #   - show_tags             render tag pills (default: True)
 #   - show_review           render review excerpt (default: True)
@@ -53,6 +55,7 @@ class ImaginaryLibraryMode:
         self.books_file = str(config.get("books_file", "data/imaginary_library/books.json"))
         self.match_by = str(config.get("match_by", "filename")).lower()
         self.portrait_layout = bool(config.get("portrait_layout", False))
+        self.portrait_cover_height_frac = float(config.get("portrait_cover_height_frac", 0.34))
         self.show_tags = bool(config.get("show_tags", True))
         self.show_review = bool(config.get("show_review", True))
 
@@ -615,7 +618,7 @@ class ImaginaryLibraryMode:
         aspect = 800 / 1200
 
         if self.portrait_layout:
-            cover_area_h = int(self.h * 0.45)
+            cover_area_h = int(self.h * max(0.1, min(0.8, self.portrait_cover_height_frac)))
             available_w = self.w - 2 * padding
             available_h = cover_area_h - 2 * padding
             cw = min(available_w, int(available_h * aspect))

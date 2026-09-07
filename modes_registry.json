@@ -1055,6 +1055,7 @@
         "dwell_seconds",
         "match_by",
         "portrait_layout",
+        "portrait_cover_height_frac",
         "placeholder_color",
         "show_tags",
         "show_review",
