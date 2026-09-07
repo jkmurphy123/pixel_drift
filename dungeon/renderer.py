@@ -230,6 +230,10 @@ class Renderer:
         dungeon = self.dungeon
         knowledge = self.expedition.knowledge
         ink = self.palette["ink"]
+        dw, dh = dungeon.width, dungeon.height
+        ts = self._tile_size
+        off_x, off_y = self._map_offset
+        feature_rect = pygame.Rect(off_x, off_y, dw * ts, dh * ts)
         for ty in range(dungeon.height):
             for tx in range(dungeon.width):
                 if knowledge[ty][tx] == VOID:
@@ -237,11 +241,11 @@ class Renderer:
                 tile = dungeon.tiles[ty][tx]
                 if tile == DOOR:
                     symbols.draw_closed_door(
-                        surface, tx, ty, self._tile_size, self._map_rect, ink
+                        surface, tx, ty, self._tile_size, feature_rect, ink
                     )
                 elif tile == STAIRS_DOWN:
                     symbols.draw_stairs(
-                        surface, tx, ty, self._tile_size, self._map_rect, ink
+                        surface, tx, ty, self._tile_size, feature_rect, ink
                     )
 
     def _draw_room_numbers(self, surface: pygame.Surface) -> None:
