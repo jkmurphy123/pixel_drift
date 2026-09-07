@@ -254,7 +254,13 @@ class Renderer:
             self._panel_rect.topright,
             2,
         )
-        font = self._font_getter(self.font_name, max(12, self._panel_rect.height // 5))
+
+        # Keep the side panel text readable but not overwhelming on large displays.
+        font_size = min(
+            max(12, self._panel_rect.height // 10),
+            max(12, self._panel_rect.width // 15),
+        )
+        font = self._font_getter(self.font_name, font_size)
         text = font.render("Phase 1 — static map prototype", True, self.palette["panel_text"])
         surface.blit(text, (self._panel_rect.x + 12, self._panel_rect.y + 10))
 
@@ -263,8 +269,9 @@ class Renderer:
             f"size: {self.dungeon.width}x{self.dungeon.height}",
             f"stairs: {self.dungeon.stairs_down}",
         ]
+        stats_font = self._font_getter(self.font_name, max(10, font_size * 3 // 4))
         y = self._panel_rect.y + 14 + text.get_height()
         for line in stats:
-            surf = font.render(line, True, self.palette["panel_text"])
+            surf = stats_font.render(line, True, self.palette["panel_text"])
             surface.blit(surf, (self._panel_rect.x + 12, y))
             y += surf.get_height() + 4
