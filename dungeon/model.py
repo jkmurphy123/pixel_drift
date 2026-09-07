@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from enum import auto, Enum
 from typing import List, Tuple
 
 
@@ -18,6 +19,27 @@ DOOR = 3
 STAIRS_DOWN = 4
 
 WALKABLE = {FLOOR, DOOR, STAIRS_DOWN}
+
+
+class ExpeditionPhase(Enum):
+    WAITING = auto()
+    PLANNING = auto()
+    MOVING = auto()
+    REVEALING = auto()
+    RESOLVING_EVENT = auto()
+    SHOWING_JOURNAL = auto()
+    RESTING = auto()
+    RETURNING = auto()
+    EXPEDITION_COMPLETE = auto()
+
+
+@dataclass
+class Explorer:
+    name: str
+    role: str
+    health: int = 10
+    max_health: int = 10
+    condition: str = "healthy"
 
 
 @dataclass
@@ -35,6 +57,18 @@ class Room:
     @property
     def center(self) -> Tuple[int, int]:
         return self.x + self.width // 2, self.y + self.height // 2
+
+
+@dataclass
+class Party:
+    members: List[Explorer]
+    x: int
+    y: int
+    supplies: int = 100
+    torches: int = 12
+    morale: int = 75
+    gold: int = 0
+    current_goal: str = "explore"
 
 
 @dataclass
@@ -58,3 +92,24 @@ class Dungeon:
             if room.x <= x < room.x + room.width and room.y <= y < room.y + room.height:
                 return room
         return None
+
+
+@dataclass
+class Expedition:
+    dungeon: Dungeon
+    party: Party
+    knowledge: List[List[int]]
+    route: List[Tuple[int, int]]
+    journal: List[str]
+    phase: ExpeditionPhase
+    current_path: List[Tuple[int, int]]
+    path_index: int
+    phase_timer: float
+    step_timer: float
+    seed: int | None = None
+    floor: int = 1
+    day: int = 1
+    explored_event_ids: set = field(default_factory=set)
+
+    def is_discovered(self, x: int, y: int) -> bool:
+        return self.dungeon.in_bounds(x, y) and self.knowledge[y][x] != VOID

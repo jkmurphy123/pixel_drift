@@ -1,7 +1,8 @@
 # dungeon/renderer.py
 #
-# Draws the graph-paper dungeon map, drafting symbols, room numbers, and the
-# header/panel chrome. Everything is code-generated; no bitmap assets.
+# Draws the graph-paper dungeon map, drafting symbols, room numbers, party marker,
+# expedition route, and the header/panel chrome. Everything is code-generated;
+# no bitmap assets.
 
 from __future__ import annotations
 
@@ -10,7 +11,7 @@ from typing import Callable
 import pygame
 
 from . import symbols
-from .model import DOOR, Dungeon, FLOOR, Room, STAIRS_DOWN, VOID, WALKABLE
+from .model import DOOR, Dungeon, Expedition, FLOOR, Room, STAIRS_DOWN, VOID, WALKABLE
 
 
 _PALETTES = {
@@ -44,11 +45,12 @@ _PALETTES = {
 class Renderer:
     def __init__(
         self,
-        dungeon: Dungeon,
+        expedition: Expedition,
         config: dict,
         font_getter: Callable[[str, int], pygame.font.Font],
     ):
-        self.dungeon = dungeon
+        self.expedition = expedition
+        self.dungeon = expedition.dungeon
         self.config = config
         self._font_getter = font_getter
         self.layout = str(config.get("layout", "auto")).lower()
@@ -137,7 +139,7 @@ class Renderer:
         font = self._font_getter(self.font_name, max(12, self._header_rect.height // 2))
         title = "DUNGEON EXPEDITION"
         seed_text = f"seed {self.dungeon.seed}" if self.dungeon.seed is not None else "random"
-        line = f"{title}  •  Floor 1  •  {seed_text}"
+        line = f"{title}  •  Floor {self.expedition.floor}  •  {seed_text}"
         text = font.render(line, True, self.palette["panel_text"])
         y = self._header_rect.centery - text.get_height() // 2
         surface.blit(text, (self._header_rect.x + 12, y))
@@ -151,6 +153,9 @@ class Renderer:
         self._draw_features(surface)
         if self.show_room_numbers:
             self._draw_room_numbers(surface)
+        if self.show_route:
+            self._draw_route(surface)
+        self._draw_party_marker(surface)
 
     def _draw_grid(self, surface: pygame.Surface) -> None:
         off_x, off_y = self._map_offset
@@ -176,6 +181,7 @@ class Renderer:
 
     def _draw_floor_and_walls(self, surface: pygame.Surface) -> None:
         dungeon = self.dungeon
+        knowledge = self.expedition.knowledge
         ts = self._tile_size
         if ts < 2:
             return
@@ -184,13 +190,18 @@ class Renderer:
 
         for ty in range(dungeon.height):
             for tx in range(dungeon.width):
-                tile = dungeon.tiles[ty][tx]
+                tile = knowledge[ty][tx]
+                if tile == VOID:
+                    continue
                 if tile not in WALKABLE:
+                    # Draw solid wall cells inside rooms so rooms read as enclosed.
+                    rect = self._tile_screen_rect(tx, ty)
+                    pygame.draw.rect(surface, self.palette["pencil"], rect)
                     continue
                 rect = self._tile_screen_rect(tx, ty)
                 # Floor tint
                 pygame.draw.rect(surface, floor_color, rect)
-                # Wall segments along edges with non-walkable neighbors
+                # Wall segments along edges with non-walkable or undiscovered neighbors
                 for dx, dy, edge in (
                     (0, -1, "top"),
                     (0, 1, "bottom"),
@@ -198,7 +209,9 @@ class Renderer:
                     (1, 0, "right"),
                 ):
                     nx, ny = tx + dx, ty + dy
-                    if not dungeon.in_bounds(nx, ny) or dungeon.tiles[ny][nx] not in WALKABLE:
+                    if not dungeon.in_bounds(nx, ny):
+                        self._draw_wall_edge(surface, rect, edge, ink)
+                    elif knowledge[ny][nx] == VOID or dungeon.tiles[ny][nx] not in WALKABLE:
                         self._draw_wall_edge(surface, rect, edge, ink)
 
     def _draw_wall_edge(
@@ -215,9 +228,12 @@ class Renderer:
 
     def _draw_features(self, surface: pygame.Surface) -> None:
         dungeon = self.dungeon
+        knowledge = self.expedition.knowledge
         ink = self.palette["ink"]
         for ty in range(dungeon.height):
             for tx in range(dungeon.width):
+                if knowledge[ty][tx] == VOID:
+                    continue
                 tile = dungeon.tiles[ty][tx]
                 if tile == DOOR:
                     symbols.draw_closed_door(
@@ -243,6 +259,36 @@ class Renderer:
             y = rect.centery - text.get_height() // 2
             surface.blit(text, (x, y))
 
+    def _draw_route(self, surface: pygame.Surface) -> None:
+        if self._tile_size < 2:
+            return
+        route = self.expedition.route
+        if len(route) < 2:
+            return
+        color = self.palette["route"]
+        points = [
+            self._tile_screen_rect(x, y).center
+            for x, y in route
+            if self.expedition.is_discovered(x, y)
+        ]
+        if len(points) > 1:
+            pygame.draw.lines(surface, color, False, points, max(1, self._tile_size // 4))
+
+    def _draw_party_marker(self, surface: pygame.Surface) -> None:
+        ts = self._tile_size
+        if ts < 4:
+            return
+        x, y = self.expedition.party.x, self.expedition.party.y
+        rect = self._tile_screen_rect(x, y)
+        color = self.palette["party"]
+        # Compass diamond marker.
+        mid_top = (rect.centerx, rect.top + ts // 4)
+        mid_right = (rect.right - ts // 4, rect.centery)
+        mid_bottom = (rect.centerx, rect.bottom - ts // 4)
+        mid_left = (rect.left + ts // 4, rect.centery)
+        pygame.draw.polygon(surface, color, [mid_top, mid_right, mid_bottom, mid_left])
+        pygame.draw.circle(surface, self.palette["ink"], rect.center, max(1, ts // 6))
+
     def _draw_panel(self, surface: pygame.Surface) -> None:
         if self._panel_rect.height < 20 or self._panel_rect.width < 40:
             return
@@ -261,17 +307,48 @@ class Renderer:
             max(12, self._panel_rect.width // 15),
         )
         font = self._font_getter(self.font_name, font_size)
-        text = font.render("Phase 1 — static map prototype", True, self.palette["panel_text"])
-        surface.blit(text, (self._panel_rect.x + 12, self._panel_rect.y + 10))
+        phase_label = self.expedition.phase.name.replace("_", " ")
+        title = font.render(f"Phase: {phase_label}", True, self.palette["panel_text"])
+        surface.blit(title, (self._panel_rect.x + 12, self._panel_rect.y + 10))
 
-        stats = [
-            f"rooms: {len(self.dungeon.rooms)}",
-            f"size: {self.dungeon.width}x{self.dungeon.height}",
-            f"stairs: {self.dungeon.stairs_down}",
-        ]
         stats_font = self._font_getter(self.font_name, max(10, font_size * 3 // 4))
-        y = self._panel_rect.y + 14 + text.get_height()
+        party = self.expedition.party
+        stats = [
+            f"party: {party.x},{party.y}  goal: {party.current_goal}",
+            f"supplies: {party.supplies}  torches: {party.torches}  morale: {party.morale}",
+            f"members: {len(party.members)}  explored: {len(self.expedition.route)} tiles",
+        ]
+        y = self._panel_rect.y + 14 + title.get_height()
         for line in stats:
             surf = stats_font.render(line, True, self.palette["panel_text"])
             surface.blit(surf, (self._panel_rect.x + 12, y))
             y += surf.get_height() + 4
+
+        # Show the most recent journal line.
+        if self.expedition.journal:
+            last = self.expedition.journal[-1]
+            wrap_w = max(40, self._panel_rect.width - 24)
+            wrapped = self._wrap_text(last, stats_font, wrap_w)
+            for line in wrapped[:4]:
+                surf = stats_font.render(line, True, self.palette["panel_text"])
+                if y + surf.get_height() > self._panel_rect.bottom - 6:
+                    break
+                surface.blit(surf, (self._panel_rect.x + 12, y))
+                y += surf.get_height() + 2
+
+    @staticmethod
+    def _wrap_text(text: str, font: pygame.font.Font, max_width: int) -> list[str]:
+        words = text.split()
+        lines: list[str] = []
+        current = ""
+        for word in words:
+            test = f"{current} {word}".strip()
+            if font.size(test)[0] <= max_width:
+                current = test
+            else:
+                if current:
+                    lines.append(current)
+                current = word
+        if current:
+            lines.append(current)
+        return lines or [""]

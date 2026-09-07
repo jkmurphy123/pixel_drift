@@ -1,9 +1,10 @@
 # tests/test_dungeon.py
 #
-# Phase 1 tests for the dungeon expedition mode:
+# Tests for the dungeon expedition mode:
 #   - generator produces connected dungeons
 #   - mode can be constructed, entered, rendered, and exited headlessly
 #   - renderer handles portrait and landscape screen sizes
+#   - expedition reveals fog-of-war, moves the party, and completes a floor
 
 import os
 import sys
@@ -19,8 +20,10 @@ os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 import pygame  # noqa: E402
 
 from dungeon.generator import generate_dungeon  # noqa: E402
-from dungeon.model import WALKABLE  # noqa: E402
+from dungeon.model import ExpeditionPhase, VOID, WALKABLE  # noqa: E402
 from dungeon.pathfinding import find_path  # noqa: E402
+from dungeon.renderer import Renderer  # noqa: E402
+from dungeon.simulation import create_expedition, update_expedition  # noqa: E402
 from modes.dungeon_mode import DungeonMode  # noqa: E402
 
 
@@ -82,11 +85,58 @@ def test_pathfinding_finds_route_between_rooms():
         assert dungeon.is_walkable(x, y)
 
 
+def test_expedition_starts_at_entrance_and_reveals_it():
+    dungeon = generate_dungeon(48, 32, min_rooms=4, max_rooms=4, seed=11)
+    expedition = create_expedition(dungeon, seed=11)
+    assert expedition.party.x == dungeon.rooms[0].center[0]
+    assert expedition.party.y == dungeon.rooms[0].center[1]
+    assert expedition.is_discovered(expedition.party.x, expedition.party.y)
+    assert dungeon.rooms[0].visited
+
+
+def test_expedition_reveals_dungeon_over_time():
+    dungeon = generate_dungeon(48, 32, min_rooms=4, max_rooms=4, seed=22)
+    expedition = create_expedition(dungeon, seed=22)
+    initial_known = sum(
+        1 for y in range(dungeon.height) for x in range(dungeon.width)
+        if expedition.knowledge[y][x] != VOID
+    )
+    config = {
+        "seconds_per_step": 0.05,
+        "journal_pause_seconds": 0.0,
+        "simulation_speed": 10.0,
+    }
+    for _ in range(200):
+        update_expedition(expedition, 0.1, config)
+        if expedition.phase == ExpeditionPhase.EXPEDITION_COMPLETE:
+            break
+    final_known = sum(
+        1 for y in range(dungeon.height) for x in range(dungeon.width)
+        if expedition.knowledge[y][x] != VOID
+    )
+    assert final_known > initial_known
+    assert expedition.phase == ExpeditionPhase.EXPEDITION_COMPLETE
+
+
+def test_renderer_uses_knowledge_grid():
+    dungeon = generate_dungeon(48, 32, min_rooms=4, max_rooms=4, seed=33)
+    expedition = create_expedition(dungeon, seed=33)
+    renderer = Renderer(
+        expedition=expedition,
+        config={"seed": 33},
+        font_getter=lambda name, size: pygame.font.Font(None, size),
+    )
+    screen = pygame.Surface((640, 480))
+    renderer.render(screen)
+    assert renderer._tile_size > 0
+
+
 def test_mode_smoke_portrait():
     mode = DungeonMode({"seed": 42, "dungeon_width": 48, "dungeon_height": 32})
     manager = _FakeManager(1080, 1920)
     mode.enter(manager)
     assert mode.renderer is not None
+    mode.update(0.1)
     mode.render(manager.screen)
     mode.exit()
 
@@ -96,6 +146,7 @@ def test_mode_smoke_landscape():
     manager = _FakeManager(1920, 1080)
     mode.enter(manager)
     assert mode.renderer is not None
+    mode.update(0.1)
     mode.render(manager.screen)
     mode.exit()
 

@@ -1,8 +1,9 @@
 # modes/dungeon_mode.py
 #
 # pixel_drift mode entrypoint for the procedural dungeon expedition.
-# Phase 1: static map prototype with connected rooms, corridors, doors, stairs,
-# graph-paper rendering, and the standard pixel_drift mode contract.
+# Phase 2: connected dungeon generation, fog-of-war revealing, party marker,
+# frontier selection, movement animation, and the standard pixel_drift mode
+# contract.
 #
 # Config keys (see modes_registry.json "dungeonexpedition" entry):
 #   seed                       (optional) int; fixes dungeon generation
@@ -10,6 +11,9 @@
 #   dungeon_height             (optional) int; default 40
 #   minimum_rooms              (optional) int; default 8
 #   maximum_rooms              (optional) int; default 15
+#   seconds_per_step           (optional) float; default 2.0
+#   journal_pause_seconds      (optional) float; default 8.0
+#   simulation_speed           (optional) float; default 1.0
 #   major_grid_interval        (optional) int; default 5
 #   show_room_numbers          (optional) bool; default True
 #   show_expedition_route      (optional) bool; default True
@@ -21,6 +25,7 @@ import pygame
 
 from dungeon.generator import GenerationError, generate_dungeon
 from dungeon.renderer import Renderer
+from dungeon.simulation import create_expedition, update_expedition
 
 
 class DungeonMode:
@@ -35,6 +40,7 @@ class DungeonMode:
         self.manager = None
         self.renderer: Renderer | None = None
         self._error: str | None = None
+        self._paused = False
 
     def enter(self, manager):
         self.manager = manager
@@ -47,12 +53,10 @@ class DungeonMode:
                 max_rooms=self.maximum_rooms,
                 seed=self.seed,
             )
-            # Phase 1 reveals the whole map so the static look can be judged.
-            for room in dungeon.rooms:
-                room.discovered = True
+            expedition = create_expedition(dungeon, seed=self.seed)
 
             self.renderer = Renderer(
-                dungeon=dungeon,
+                expedition=expedition,
                 config=self.config,
                 font_getter=lambda name, size: manager.cache.get_font(name, size),
             )
@@ -70,11 +74,18 @@ class DungeonMode:
         self.manager = None
 
     def handle_event(self, event):
-        pass
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                self._paused = not self._paused
+            elif event.key == pygame.K_UP:
+                self.config["simulation_speed"] = float(self.config.get("simulation_speed", 1.0)) + 0.5
+            elif event.key == pygame.K_DOWN:
+                self.config["simulation_speed"] = max(0.0, float(self.config.get("simulation_speed", 1.0)) - 0.5)
 
     def update(self, dt: float):
-        # Phase 1 is static; the simulation state machine arrives in Phase 2.
-        pass
+        if self.renderer is None or self._paused:
+            return
+        update_expedition(self.renderer.expedition, dt, self.config)
 
     def render(self, screen: pygame.Surface):
         if self.renderer is not None:
