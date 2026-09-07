@@ -47,6 +47,8 @@ ALL_TYPES_LAYOUT = {
         {"type": "bar_graph",       "sprite": "BAR_GRAPH_V_1", "panel": "p", "at": [3, 2]},
         {"type": "led_bar",         "sprite": "LED_BAR",      "panel": "p", "at": [4, 2]},
         {"type": "lamp",            "sprite": "LED_LAMP_RED", "panel": "p", "at": [0, 3]},
+        {"type": "lamp_rect",      "sprite": "LED_LAMP_RECT", "panel": "p", "at": [8, 3]},
+        {"type": "lamp_square",    "sprite": "LED_LAMP_SQUARE", "panel": "p", "at": [14, 3]},
         {"type": "lamp_bank",       "sprite": "LAMP_BANK",    "panel": "p", "at": [1, 3]},
         {"type": "led_matrix",      "sprite": "LED_MATRIX",   "panel": "p", "at": [4, 3]},
         {"type": "keypad",          "sprite": "KEYPAD",       "panel": "p", "at": [6, 3]},

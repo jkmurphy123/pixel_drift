@@ -46,6 +46,8 @@
     "LED_LAMP_GREEN":      {"x": 8,  "y": 10, "w": 1, "h": 1},
     "LED_LAMP_AMBER":      {"x": 9,  "y": 10, "w": 1, "h": 1},
     "LED_LAMP_BLUE":       {"x": 10, "y": 10, "w": 1, "h": 1},
+    "LED_LAMP_SQUARE":     {"x": 11, "y": 10, "w": 1, "h": 1},
+    "LED_LAMP_RECT":       {"x": 12, "y": 10, "w": 2, "h": 1},
 
     "PANEL_PLATE_1":       {"x": 0,  "y": 11, "w": 1, "h": 1},
     "PANEL_PLATE_2":       {"x": 1,  "y": 11, "w": 1, "h": 1},

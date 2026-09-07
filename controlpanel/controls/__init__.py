@@ -7,7 +7,7 @@ from .base import Control, ControlContext  # noqa: F401
 from .bars import BarGraphControl, LedBarControl  # noqa: F401
 from .keypad import KeypadControl  # noqa: F401
 from .lampgroups import LampBankControl, LedMatrixControl  # noqa: F401
-from .lamps import LampControl  # noqa: F401
+from .lamps import LampControl, RectLampControl, SquareLampControl  # noqa: F401
 from .needles import GaugeControl, MeterControl  # noqa: F401
 from .readouts import (CounterControl, DigitalReadoutControl,  # noqa: F401
                        NixieControl)
@@ -25,6 +25,8 @@ CONTROL_CLASSES = {
     "bar_graph": BarGraphControl,
     "led_bar": LedBarControl,
     "lamp": LampControl,
+    "lamp_square": SquareLampControl,
+    "lamp_rect": RectLampControl,
     "lamp_bank": LampBankControl,
     "led_matrix": LedMatrixControl,
     "push_button": PushButtonControl,

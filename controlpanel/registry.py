@@ -13,6 +13,8 @@ CONTROL_TYPES = {
     "bar_graph":       "BAR_GRAPH_V_1",
     "led_bar":         "LED_BAR",
     "lamp":            "LED_LAMP_RED",
+    "lamp_square":     "LED_LAMP_SQUARE",
+    "lamp_rect":       "LED_LAMP_RECT",
     "lamp_bank":       "LAMP_BANK",
     "led_matrix":      "LED_MATRIX",
     "push_button":     "PUSH_BUTTON_1",
