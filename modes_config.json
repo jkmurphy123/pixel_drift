@@ -585,7 +585,11 @@
       "title": "LLM API PRICING DASHBOARD",
       "subtitle": "per-million-token input / output prices in USD",
       "data_file": "data/llm_pricing.json",
-      "accent_rgb": [100, 220, 180],
+      "accent_rgb": [
+        100,
+        220,
+        180
+      ],
       "columns_portrait": 1,
       "columns_landscape": 2,
       "panel_spacing_scale": 0.025,
@@ -607,6 +611,11 @@
       "paper_style": "blue_green",
       "layout": "auto",
       "font_name": "dejavusansmono"
+    },
+    "33": {
+      "type": "imaginarylibrary",
+      "image_folder": "assets/imaginary_library",
+      "dwell_seconds": 180
     }
   }
 }

@@ -1032,6 +1032,38 @@
         "heal_on_descend",
         "font_name"
       ]
+    },
+    "imaginarylibrary": {
+      "entrypoint": "modes.imaginary_library_mode:ImaginaryLibraryMode",
+      "type_config": {
+        "dwell_seconds": 180,
+        "image_folder": "assets/imaginary_library",
+        "match_by": "filename",
+        "placeholder_color": [
+          40,
+          35,
+          55
+        ],
+        "show_tags": true,
+        "show_review": true
+      },
+      "required": [
+        "image_folder"
+      ],
+      "optional": [
+        "books_file",
+        "dwell_seconds",
+        "match_by",
+        "portrait_layout",
+        "placeholder_color",
+        "show_tags",
+        "show_review",
+        "font_name",
+        "title_font_size",
+        "body_font_size",
+        "small_font_size",
+        "tag_font_size"
+      ]
     }
   }
 }

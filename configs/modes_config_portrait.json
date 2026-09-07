@@ -1,0 +1,420 @@
+{
+	"modes": {
+		"0": {
+			"type": "SystemInformation",
+			"refresh_hz": 2.0,
+			"show_seconds": false
+		},
+		"1": {
+			"type": "StatusTicker",
+			"file": "G:\\images\\source_code\\mode_manager\\boot_ticker_hal9000.txt",
+			"pause": 3.5,
+			"scroll_px_per_sec": 160,
+			"cursor_blink_hz": 2.0,
+			"accent_probability": 0.35,
+			"blank_lines_between_loops": 5
+		},
+		"2": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart1",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"3": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart2",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"4": {
+			"type": "slideshow",
+			"name": "Cyberart",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart3",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"5": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/pixelart",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"6": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk1",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"7": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk7",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"8": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk4",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+		"9": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberpunk5",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},		
+		"10": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/pastorial",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},	
+		"11": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/posters",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},	
+		"12": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/akira",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},			
+		"13": {
+			"type": "curated_slideshow",
+			"data_file": "pioneer_gallery.json",
+			"image_folder": "/home/ubuntu/narrow_slideshow/vert_images/pioneers",
+			"duration": 120,
+			"scale_mode": "cover",
+			"shuffle": false,
+			"title_font_scale": 0.041,
+			"desc_font_scale": 0.021,
+			"panel_alpha": 170
+		},
+		"14": {
+			"type": "slideshow",
+			"name": "Pixel Art",
+			"folder": "/home/ubuntu/narrow_slideshow/vert_images/cybermisc",
+			"duration": 120,
+			"show_time": true,
+			"overlay_font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+			"font_size": 192,
+			"overlay_font_size": 94,
+			"show_date": true,
+			"show_weather": true,
+			"weather_location": "16053",
+			"weather_units": "imperial",
+			"show_crypto": true,
+			"crypto_ids": [
+				"bitcoin",
+				"ethereum",
+				"doge"
+			],
+			"show_dow": false
+		},
+        "15": {
+            "type": "missioncontrolconsole",
+            "title": "MISSION CONTROL CONSOLE",
+            "mission_name": "APOLLO 17 // TRANSLUNAR OPERATIONS",
+            "accent_rgb": [
+                255,
+                204,
+                132
+            ],
+            "refresh_hz": 60,
+            "portrait_layout": false,
+            "scanline_alpha": 0,
+            "noise_alpha": 0,
+            "vignette_strength": 0.0,
+            "console_rows": 4,
+            "console_cols": 7,
+            "anomaly_probability_per_min": 0.45,
+            "event_interval_range": [
+                1.6,
+                3.4
+            ],
+            "chart_count": 3,
+            "orbit_period_sec": 52.0,
+            "seed": 19691207
+        },
+        "16": {
+            "type": "corememorymatrix",
+            "title": "CORE MEMORY MATRIX",
+            "bank_name": "STACK 2 // COINCIDENT CURRENT STORE",
+            "accent_rgb": [
+                255,
+                174,
+                98
+            ],
+            "refresh_hz": 60,
+            "rows": 16,
+            "cols": 16,
+            "write_probability_per_sec": 1.0,
+            "read_probability_per_sec": 1.7,
+            "parity_fault_probability_per_min": 0.28,
+            "pulse_ttl": 1.0,
+            "scanline_alpha": 0,
+            "noise_alpha": 0,
+            "vignette_strength": 0.0,
+            "portrait_layout": false,
+            "seed": 19640315
+        },
+    "17": {
+      "type": "quoteslideshow",
+      "folder": "/home/ubuntu/narrow_slideshow/vert_images/cyberart2",
+      "duration": 15,
+      "quote_file": "quotes_dystopian.json",
+      "play_audio": false,
+      "scale_mode": "cover",
+      "shuffle_images": true,
+      "quote_panel_alpha": 170,
+      "quote_panel_color": [
+        15,
+        15,
+        28
+      ],
+      "quote_text_color": [
+        235,
+        235,
+        245
+      ],
+      "quote_author_color": [
+        170,
+        170,
+        200
+      ],
+      "quote_font_scale": 0.07,
+      "quote_max_width_frac": 0.7,
+      "quote_line_spacing": 1.4
+    },
+    "18": {
+      "type": "satellitetracker",
+      "title": "SATELLITE TRACKING NETWORK",
+      "rotation": "daily",
+      "tle_max_age_hours": 24,
+      "update_hz": 1.0,
+      "accent_rgb": [
+        255,
+        204,
+        132
+      ],
+      "scanline_alpha": 0
+    },
+    "19": {
+      "type": "wargames",
+      "title": "WOPR // GLOBAL THERMONUCLEAR WAR",
+      "speed": 1.0,
+      "seed": 1983,
+      "accent_rgb": [
+        255,
+        204,
+        132
+      ],
+      "scanline_alpha": 0
+    },
+    "20": {
+      "type": "controlpanel",
+      "layout_file": "steampunk_vert1"
+    },
+        "21": {
+            "type": "rbmkreactorsimulation",
+            "title": "REACTOR CONTROL SIMULATION",
+            "reactor_name": "RBMK-STYLE CORE // NIGHT TEST SEQUENCE",
+            "accent_rgb": [
+                255,
+                166,
+                98
+            ],
+            "refresh_hz": 60,
+            "rows": 12,
+            "cols": 12,
+            "loop_duration_sec": 38.0,
+            "portrait_layout": true,
+            "seed": 19860426
+        },
+        "22": {
+            "type": "scifihomecontrolpanel",
+            "title": "KESTREL HABITAT CONTROL",
+            "subtitle": "TIER 3 DOMICILE // 23RD CENTURY SYSTEMS",
+            "accent_rgb": [0, 255, 200],
+            "panel_duration_sec": 60,
+            "crossfade_sec": 0.8,
+            "scanline_alpha": 10,
+            "noise_alpha": 10,
+            "vignette_strength": 0.18,
+            "seed": 23501201
+        },
+        "23": {
+            "type": "imaginarylibrary",
+            "image_folder": "assets/imaginary_library",
+            "books_file": "data/imaginary_library/books.json",
+            "dwell_seconds": 180,
+            "portrait_layout": true
+        }
+    }
+}
