@@ -1007,6 +1007,28 @@
         "base_amplitude",
         "layer_factors"
       ]
+    },
+    "dungeonexpedition": {
+      "entrypoint": "modes.dungeon_mode:DungeonMode",
+      "required": [],
+      "optional": [
+        "seed",
+        "dungeon_width",
+        "dungeon_height",
+        "minimum_rooms",
+        "maximum_rooms",
+        "seconds_per_step",
+        "journal_pause_seconds",
+        "target_floor_duration_minutes",
+        "major_grid_interval",
+        "show_room_numbers",
+        "show_expedition_route",
+        "paper_style",
+        "layout",
+        "simulation_speed",
+        "save_path",
+        "font_name"
+      ]
     }
   }
 }

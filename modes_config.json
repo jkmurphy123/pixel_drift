@@ -593,6 +593,20 @@
       "noise_alpha": 0,
       "vignette_strength": 0.15,
       "seed": 20260817
+    },
+    "32": {
+      "type": "dungeonexpedition",
+      "seed": 42,
+      "dungeon_width": 64,
+      "dungeon_height": 40,
+      "minimum_rooms": 8,
+      "maximum_rooms": 15,
+      "major_grid_interval": 5,
+      "show_room_numbers": true,
+      "show_expedition_route": true,
+      "paper_style": "blue_green",
+      "layout": "auto",
+      "font_name": "dejavusansmono"
     }
   }
 }
