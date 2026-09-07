@@ -14,11 +14,31 @@
 # error line instead of a broken screen.
 
 import json
+import struct
+
+import pygame
 
 from . import paths
 from .geometry import CELL_SIZE, GRID_COLS, GRID_ROWS, cell_rect
 from .registry import CONTROL_TYPES
 from .skin import load_sprite_defs
+
+
+# PNG dimensions can be read from the IHDR chunk without decoding the whole
+# image. This lets freeform layouts infer design_resolution from a background
+# image even before pygame.display.set_mode has been called (e.g. headless
+# tests or layout validation), and avoids a pygame dependency on the image
+# being loadable in the current video driver.
+def _png_size(path):
+    with open(path, "rb") as f:
+        header = f.read(24)
+    if len(header) < 24 or header[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError("not a PNG file")
+    # bytes 12-15: IHDR chunk type, 16-19: width, 20-23: height (big-endian)
+    if header[12:16] != b"IHDR":
+        raise ValueError("missing IHDR chunk")
+    width, height = struct.unpack(">II", header[16:24])
+    return width, height
 
 
 class LayoutError(Exception):
@@ -175,11 +195,10 @@ def _load_grid(name, data, sprite_defs):
 # ── freeform mode (pixel-precise over full artwork, D6) ─────────
 
 def _load_freeform(name, data, sprite_defs):
-    resolution = data.get("design_resolution", [1920, 1080])
-    if resolution[0] <= 0 or resolution[1] <= 0:
-        raise LayoutError(f"layout '{name}': bad design_resolution {resolution}")
-    canvas_w, canvas_h = int(resolution[0]), int(resolution[1])
-
+    # Resolve the background image first because, when no design_resolution
+    # is supplied, the layout canvas should match the artwork's native
+    # resolution. This avoids accidentally forcing a portrait background
+    # into the default 1920x1080 landscape canvas.
     background_image = None
     bg = data.get("background_image")
     if bg:
@@ -187,6 +206,23 @@ def _load_freeform(name, data, sprite_defs):
         if not bg_path.exists():
             raise LayoutError(f"layout '{name}': background image not found: {bg_path}")
         background_image = str(bg_path)
+
+    if "design_resolution" in data:
+        resolution = data["design_resolution"]
+    elif background_image:
+        try:
+            resolution = list(_png_size(background_image))
+        except (OSError, ValueError):
+            try:
+                resolution = list(pygame.image.load(background_image).get_size())
+            except pygame.error as e:
+                raise LayoutError(f"layout '{name}': cannot read background image {background_image}: {e}")
+    else:
+        resolution = [1920, 1080]
+
+    if resolution[0] <= 0 or resolution[1] <= 0:
+        raise LayoutError(f"layout '{name}': bad design_resolution {resolution}")
+    canvas_w, canvas_h = int(resolution[0]), int(resolution[1])
 
     controls = []
     for i, c in enumerate(data.get("controls", [])):

@@ -44,12 +44,18 @@ class Compositor:
 
         if self.layout.background_image:
             try:
-                img = pygame.image.load(self.layout.background_image).convert()
+                img = pygame.image.load(self.layout.background_image)
             except pygame.error as e:
                 raise LayoutError(
                     f"layout '{self.layout.name}': cannot load background "
                     f"{self.layout.background_image}: {e}"
                 )
+            # .convert() needs a display surface; on headless/dummy drivers it
+            # may fail, in which case the loaded surface is still usable.
+            try:
+                img = img.convert()
+            except pygame.error:
+                pass
             if img.get_size() != (w, h):
                 img = pygame.transform.smoothscale(img, (w, h))
             canvas.blit(img, (0, 0))

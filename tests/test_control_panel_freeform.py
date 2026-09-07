@@ -72,13 +72,38 @@ def test_freeform_validates_and_computes_rects(tmp_path):
 
 
 def test_freeform_default_resolution(tmp_path):
+    # When a background image is supplied but design_resolution is omitted,
+    # the canvas size is inferred from the image so the artwork is not forced
+    # into the legacy 1920x1080 default.
     data = {k: v for k, v in BASE.items() if k != "design_resolution"}
+    layout = load_layout(_write(tmp_path, {**data, "controls": []}))
+    assert layout.design_resolution == (320, 240)
+
+
+def test_freeform_no_background_defaults_to_1080p(tmp_path):
+    data = {k: v for k, v in BASE.items() if k not in ("design_resolution", "background_image")}
     layout = load_layout(_write(tmp_path, {**data, "controls": []}))
     assert layout.design_resolution == (1920, 1080)
 
 
-def test_freeform_accepts_non_1080_design_resolution(tmp_path):
-    # e.g. 1920x1088 artwork: the canvas is whatever design_resolution says
+def test_freeform_portrait_background_infers_portrait_resolution(tmp_path):
+    bg_path = tmp_path / "portrait.png"
+    portrait = pygame.Surface((816, 1440))
+    portrait.fill((20, 30, 40))
+    pygame.image.save(portrait, str(bg_path))
+    layout_path = tmp_path / "layout.json"
+    layout_path.write_text(json.dumps({
+        "name": "ff",
+        "mode": "freeform",
+        "background_image": str(bg_path),
+        "controls": []
+    }))
+    layout = load_layout(str(layout_path))
+    assert layout.design_resolution == (816, 1440)
+
+
+def test_freeform_explicit_design_resolution_overrides_image(tmp_path):
+    # e.g. 1920x1088 artwork: an explicit design_resolution wins
     data = {**BASE, "design_resolution": [1920, 1088], "controls": [
         {"type": "lamp", "at": [1800, 980], "size": [96, 96]}]}
     layout = load_layout(_write(tmp_path, data))
