@@ -11,7 +11,7 @@ from typing import Callable
 import pygame
 
 from . import symbols
-from .model import DOOR, Dungeon, Expedition, FLOOR, Room, STAIRS_DOWN, VOID, WALKABLE
+from .model import CHEST, DOOR, Dungeon, Expedition, FLOOR, Room, STAIRS_DOWN, TRAP, VOID, WALKABLE
 
 
 _PALETTES = {
@@ -247,6 +247,14 @@ class Renderer:
                     symbols.draw_stairs(
                         surface, tx, ty, self._tile_size, feature_rect, ink
                     )
+                elif tile == TRAP:
+                    symbols.draw_trap(
+                        surface, tx, ty, self._tile_size, feature_rect, ink
+                    )
+                elif tile == CHEST:
+                    symbols.draw_chest(
+                        surface, tx, ty, self._tile_size, feature_rect, ink
+                    )
 
     def _draw_room_numbers(self, surface: pygame.Surface) -> None:
         if self._tile_size < 10:
@@ -317,10 +325,12 @@ class Renderer:
 
         stats_font = self._font_getter(self.font_name, max(10, font_size * 3 // 4))
         party = self.expedition.party
+        total_health = sum(m.health for m in party.members)
+        max_health = sum(m.max_health for m in party.members)
         stats = [
             f"party: {party.x},{party.y}  goal: {party.current_goal}",
-            f"supplies: {party.supplies}  torches: {party.torches}  morale: {party.morale}",
-            f"members: {len(party.members)}  explored: {len(self.expedition.route)} tiles",
+            f"health: {total_health}/{max_health}  supplies: {party.supplies}  torches: {party.torches}",
+            f"morale: {party.morale}  gold: {party.gold}  explored: {len(self.expedition.route)} tiles",
         ]
         y = self._panel_rect.y + 14 + title.get_height()
         for line in stats:

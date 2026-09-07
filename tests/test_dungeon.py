@@ -20,11 +20,13 @@ os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 import pygame  # noqa: E402
 
 from dungeon.generator import generate_dungeon  # noqa: E402
-from dungeon.model import ExpeditionPhase, VOID, WALKABLE  # noqa: E402
+from dungeon.model import CHEST, ExpeditionPhase, TRAP, VOID, WALKABLE  # noqa: E402
 from dungeon.pathfinding import find_path  # noqa: E402
 from dungeon.renderer import Renderer  # noqa: E402
 from dungeon.simulation import create_expedition, update_expedition  # noqa: E402
 from modes.dungeon_mode import DungeonMode  # noqa: E402
+from dungeon.tables import load_tables  # noqa: E402
+from dungeon.events import resolve_room_entry, resolve_tile_entry  # noqa: E402
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -165,3 +167,52 @@ def test_mode_handles_generation_error_gracefully():
     assert mode._error is not None
     mode.render(manager.screen)
     mode.exit()
+
+
+def test_generator_assigns_room_types_and_features():
+    dungeon = generate_dungeon(64, 40, min_rooms=6, max_rooms=10, seed=55)
+    types = {r.room_type for r in dungeon.rooms}
+    assert "ordinary" in types
+    # Entrance is always ordinary; other rooms should pick from tables.
+    assert len(types) >= 1
+    assert any(r.features for r in dungeon.rooms)
+
+
+def test_generator_places_traps_and_chests():
+    dungeon = generate_dungeon(64, 40, min_rooms=8, max_rooms=12, seed=66)
+    traps = sum(1 for y in range(dungeon.height) for x in range(dungeon.width) if dungeon.tiles[y][x] == TRAP)
+    chests = sum(1 for y in range(dungeon.height) for x in range(dungeon.width) if dungeon.tiles[y][x] == CHEST)
+    assert traps + chests > 0
+
+
+def test_tables_load_with_defaults():
+    tables = load_tables()
+    assert "room_types" in tables._data
+    assert tables.weighted_choice("room_types") is not None
+
+
+def test_room_entry_event_changes_party_state():
+    dungeon = generate_dungeon(48, 32, min_rooms=4, max_rooms=4, seed=77)
+    expedition = create_expedition(dungeon, seed=77)
+    room = dungeon.rooms[1]
+    room.room_type = "tomb"
+    room.features = ["trap"]
+    before = sum(m.health for m in expedition.party.members)
+    text = resolve_room_entry(expedition, room)
+    after = sum(m.health for m in expedition.party.members)
+    assert text
+    assert "tomb" in text.lower()
+    assert after <= before
+
+
+def test_tile_trap_damages_party():
+    dungeon = generate_dungeon(48, 32, min_rooms=4, max_rooms=4, seed=88)
+    expedition = create_expedition(dungeon, seed=88)
+    # Force a trap under the party's current location for deterministic testing.
+    x, y = expedition.party.x, expedition.party.y
+    dungeon.tiles[y][x] = TRAP
+    before = sum(m.health for m in expedition.party.members)
+    text = resolve_tile_entry(expedition, x, y)
+    after = sum(m.health for m in expedition.party.members)
+    assert text and "trap" in text.lower()
+    assert after <= before

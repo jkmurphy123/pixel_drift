@@ -1,0 +1,65 @@
+{
+  "room_types": {
+    "ordinary": {"weight": 40},
+    "shrine": {"weight": 8, "bias": "calm"},
+    "tomb": {"weight": 8, "bias": "danger"},
+    "armory": {"weight": 6, "bias": "loot"},
+    "laboratory": {"weight": 6, "bias": "danger"},
+    "prison": {"weight": 6, "bias": "danger"},
+    "cistern": {"weight": 6, "bias": "calm"},
+    "vault": {"weight": 5, "bias": "loot"}
+  },
+  "features": {
+    "trap": {"weight": 12, "dangerous": true, "tile": "trap"},
+    "chest": {"weight": 10, "dangerous": false, "tile": "chest"},
+    "statue": {"weight": 10, "dangerous": false, "tile": null},
+    "fountain": {"weight": 8, "dangerous": false, "tile": null},
+    "inscription": {"weight": 14, "dangerous": false, "tile": null},
+    "rubble": {"weight": 12, "dangerous": false, "tile": null},
+    "altar": {"weight": 8, "dangerous": true, "tile": null}
+  },
+  "creatures": [
+    {"name": "giant rat", "health": 1, "morale": 0, "gold": 0},
+    {"name": "skeleton", "health": 2, "morale": 1, "gold": 5},
+    {"name": "cave bat", "health": 1, "morale": 1, "gold": 0},
+    {"name": "goblin scout", "health": 2, "morale": 2, "gold": 8},
+    {"name": "carrion crawler", "health": 3, "morale": 2, "gold": 10},
+    {"name": "shadow", "health": 2, "morale": 3, "gold": 5},
+    {"name": "doom beetle", "health": 1, "morale": 0, "gold": 2}
+  ],
+  "treasures": [
+    {"name": "a pouch of silver", "gold": 10, "supplies": 0, "morale": 2},
+    {"name": "an old weapon", "gold": 5, "supplies": 0, "morale": 1},
+    {"name": "a healing salve", "gold": 2, "supplies": 5, "morale": 3},
+    {"name": "a sealed ration crate", "gold": 0, "supplies": 15, "morale": 1},
+    {"name": "a small gem", "gold": 25, "supplies": 0, "morale": 5},
+    {"name": "a brass lantern", "gold": 8, "supplies": 0, "torches": 2, "morale": 2}
+  ],
+  "room_adjectives": [
+    "narrow", "vaulted", "cramped", "echoing", "dusty", "damp", "sunken",
+    "tilted", "rough-hewn", "polished", "mossy", "crumbling", "swept", "cold"
+  ],
+  "room_nouns": [
+    "chamber", "hall", "cell", "passage", "cave", "crypt", "antechamber",
+    "gallery", "cistern", "shrine", "workroom", "vault"
+  ],
+  "feature_descriptions": {
+    "trap": ["a sprung pressure plate", "tripwire hooks", "a suspicious groove"],
+    "chest": ["a locked iron chest", "a rotted coffer", "a small strongbox"],
+    "statue": ["a defaced statue", "a weathered idol", "a headless figure"],
+    "fountain": ["a dry fountain", "a cracked basin", "a murky pool"],
+    "inscription": ["faded runes", "a chalked warning", "carved initials"],
+    "rubble": ["a pile of rubble", "fallen masonry", "scattered stones"],
+    "altar": ["a bloodstained altar", "a stone offering slab", "a rusted brazier"]
+  },
+  "encounter_outcomes": [
+    "The party is ambushed by {creature}.",
+    "A {creature} blocks the doorway briefly.",
+    "Something moves in the dark: a {creature}."
+  ],
+  "loot_outcomes": [
+    "The chest holds {treasure}.",
+    "Hidden under debris lies {treasure}.",
+    "A {treasure} was tucked in a niche."
+  ]
+}

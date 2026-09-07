@@ -9,8 +9,9 @@ import math
 import random
 from typing import List, Tuple
 
-from . import journal
+from . import events, journal
 from .model import (
+    CHEST,
     Dungeon,
     Expedition,
     ExpeditionPhase,
@@ -18,6 +19,7 @@ from .model import (
     Party,
     Room,
     STAIRS_DOWN,
+    TRAP,
     VOID,
     WALKABLE,
 )
@@ -142,10 +144,18 @@ def _advance_one_step(expedition: Expedition, config: dict) -> bool:
         room.visited = True
         room.discovered = True
         _reveal_room(expedition, room)
-        expedition.journal.append(journal.entry_for_room_discovery(expedition, room))
+        expedition.journal.append(events.resolve_room_entry(expedition, room))
         expedition.phase = ExpeditionPhase.SHOWING_JOURNAL
         expedition.phase_timer = 0.0
         return False
+
+    tile_event_id = (x, y)
+    tile = expedition.dungeon.tiles[y][x]
+    if tile in (TRAP, CHEST) and tile_event_id not in expedition.explored_event_ids:
+        expedition.explored_event_ids.add(tile_event_id)
+        entry = events.resolve_tile_entry(expedition, x, y)
+        if entry:
+            expedition.journal.append(entry)
 
     move_entry = journal.entry_for_move(expedition, x, y)
     if move_entry and len(expedition.journal) < 1000:

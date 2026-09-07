@@ -9,7 +9,8 @@ import random
 from collections import deque
 from typing import List, Tuple
 
-from .model import DOOR, Dungeon, FLOOR, Room, STAIRS_DOWN, VOID, WALKABLE
+from .model import CHEST, DOOR, Dungeon, FLOOR, Room, STAIRS_DOWN, TRAP, VOID, WALKABLE
+from .tables import load_tables
 
 
 class GenerationError(Exception):
@@ -87,6 +88,10 @@ def _try_generate(
     # Verify connectivity.
     if not _all_rooms_reachable(tiles, rooms):
         return None
+
+    # Assign room types, features, traps, and treasure.
+    tables = load_tables()
+    _decorate_rooms(tiles, rooms, rng, tables)
 
     # Place doors where corridors meet rooms.
     _place_doors(tiles, rooms)
@@ -185,6 +190,50 @@ def _place_doors(tiles: List[List[int]], rooms: List[Room]) -> None:
                         if tiles[ny][nx] == FLOOR:
                             tiles[y][x] = DOOR
                             break
+
+
+def _decorate_rooms(
+    tiles: List[List[int]],
+    rooms: List[Room],
+    rng: random.Random,
+    tables,
+) -> None:
+    """Assign room types and place feature tiles (traps, chests)."""
+    for idx, room in enumerate(rooms):
+        # Keep the entrance plain.
+        if idx == 0:
+            room.room_type = "ordinary"
+            continue
+
+        room.room_type = tables.weighted_choice("room_types", rng) or "ordinary"
+        feature_count = rng.randint(0, 2)
+        for _ in range(feature_count):
+            feature = tables.weighted_choice("features", rng)
+            if not feature:
+                continue
+            room.features.append(feature)
+            info = tables["features"].get(feature, {})
+            tile_name = info.get("tile")
+            if tile_name == "trap":
+                _place_feature_tile(tiles, room, TRAP, rng)
+            elif tile_name == "chest":
+                _place_feature_tile(tiles, room, CHEST, rng)
+
+
+def _place_feature_tile(
+    tiles: List[List[int]], room: Room, value: int, rng: random.Random
+) -> None:
+    """Place a feature tile on an interior floor cell of the room."""
+    candidates = [
+        (x, y)
+        for y in range(room.y + 1, room.y + room.height - 1)
+        for x in range(room.x + 1, room.x + room.width - 1)
+        if tiles[y][x] == FLOOR
+    ]
+    if not candidates:
+        return
+    x, y = rng.choice(candidates)
+    tiles[y][x] = value
 
 
 def _dist_sq(a: Tuple[int, int], b: Tuple[int, int]) -> int:
