@@ -133,8 +133,9 @@ def test_renderer_uses_knowledge_grid():
     assert renderer._tile_size > 0
 
 
-def test_mode_smoke_portrait():
-    mode = DungeonMode({"seed": 42, "dungeon_width": 48, "dungeon_height": 32})
+def test_mode_smoke_portrait(tmp_path):
+    save = tmp_path / "save.json"
+    mode = DungeonMode({"seed": 42, "dungeon_width": 48, "dungeon_height": 32, "save_path": str(save)})
     manager = _FakeManager(1080, 1920)
     mode.enter(manager)
     assert mode.renderer is not None
@@ -143,8 +144,9 @@ def test_mode_smoke_portrait():
     mode.exit()
 
 
-def test_mode_smoke_landscape():
-    mode = DungeonMode({"seed": 7, "dungeon_width": 64, "dungeon_height": 40})
+def test_mode_smoke_landscape(tmp_path):
+    save = tmp_path / "save.json"
+    mode = DungeonMode({"seed": 7, "dungeon_width": 64, "dungeon_height": 40, "save_path": str(save)})
     manager = _FakeManager(1920, 1080)
     mode.enter(manager)
     assert mode.renderer is not None
@@ -153,13 +155,15 @@ def test_mode_smoke_landscape():
     mode.exit()
 
 
-def test_mode_handles_generation_error_gracefully():
+def test_mode_handles_generation_error_gracefully(tmp_path):
+    save = tmp_path / "save.json"
     mode = DungeonMode({
         "seed": 1,
         "dungeon_width": 8,
         "dungeon_height": 8,
         "minimum_rooms": 20,
         "maximum_rooms": 25,
+        "save_path": str(save),
     })
     manager = _FakeManager(320, 240)
     mode.enter(manager)
@@ -167,6 +171,28 @@ def test_mode_handles_generation_error_gracefully():
     assert mode._error is not None
     mode.render(manager.screen)
     mode.exit()
+
+
+def test_save_and_load_round_trip(tmp_path):
+    save = tmp_path / "save.json"
+    mode = DungeonMode({"seed": 42, "dungeon_width": 48, "dungeon_height": 32, "save_path": str(save)})
+    manager = _FakeManager(640, 480)
+    mode.enter(manager)
+    assert mode.renderer is not None
+    expedition = mode.renderer.expedition
+    original_seed = expedition.seed
+    original_floor = expedition.floor
+    mode.update(0.1)
+    mode.exit()
+
+    # Loading should resume the same expedition.
+    mode2 = DungeonMode({"seed": 999, "dungeon_width": 24, "dungeon_height": 16, "save_path": str(save)})
+    mode2.enter(manager)
+    assert mode2.renderer is not None
+    loaded = mode2.renderer.expedition
+    assert loaded.seed == original_seed
+    assert loaded.floor == original_floor
+    mode2.exit()
 
 
 def test_generator_assigns_room_types_and_features():

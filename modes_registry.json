@@ -1027,6 +1027,9 @@
         "layout",
         "simulation_speed",
         "save_path",
+        "save_interval_seconds",
+        "auto_descend",
+        "heal_on_descend",
         "font_name"
       ]
     }

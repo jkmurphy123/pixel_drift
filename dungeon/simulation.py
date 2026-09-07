@@ -10,6 +10,7 @@ import random
 from typing import List, Tuple
 
 from . import events, journal
+from .generator import GenerationError, generate_dungeon
 from .model import (
     CHEST,
     Dungeon,
@@ -108,14 +109,18 @@ def _choose_next_goal(expedition: Expedition) -> None:
     dungeon = expedition.dungeon
     party = expedition.party
 
-    frontier = _frontier_tiles(expedition)
-    if frontier:
-        # Pick the frontier tile closest to the party.
-        goal = min(frontier, key=lambda t: _dist(t, (party.x, party.y)))
-        party.current_goal = "explore"
+    if _should_retreat(expedition):
+        party.current_goal = "retreat"
+        goal = _retreat_goal(expedition)
     else:
-        goal = dungeon.stairs_down
-        party.current_goal = "descend"
+        frontier = _frontier_tiles(expedition)
+        if frontier:
+            # Pick the frontier tile closest to the party.
+            goal = min(frontier, key=lambda t: _dist(t, (party.x, party.y)))
+            party.current_goal = "explore"
+        else:
+            goal = dungeon.stairs_down
+            party.current_goal = "descend"
 
     path = find_path(dungeon, (party.x, party.y), goal)
     if not path:
@@ -160,6 +165,11 @@ def _advance_one_step(expedition: Expedition, config: dict) -> bool:
     move_entry = journal.entry_for_move(expedition, x, y)
     if move_entry and len(expedition.journal) < 1000:
         expedition.journal.append(move_entry)
+
+    if expedition.party.current_goal == "retreat" and (x, y) == _retreat_goal(expedition):
+        expedition.journal.append("The expedition retreats to the entrance.")
+        expedition.phase = ExpeditionPhase.EXPEDITION_COMPLETE
+        return False
 
     if (x, y) == expedition.dungeon.stairs_down and not _frontier_tiles(expedition):
         expedition.journal.append(journal.entry_for_completion(expedition))
@@ -208,3 +218,72 @@ def _reveal_room(expedition: Expedition, room: Room) -> None:
 
 def _dist(a: Tuple[int, int], b: Tuple[int, int]) -> float:
     return math.hypot(a[0] - b[0], a[1] - b[1])
+
+
+def descend_floor(expedition: Expedition, config: dict) -> bool:
+    """Generate the next floor, preserving the party and cross-floor stats.
+
+    Returns True if a new floor was generated and the expedition reset.
+    """
+    seed = expedition.seed
+    floor = expedition.floor + 1
+    width = expedition.dungeon.width
+    height = expedition.dungeon.height
+    min_rooms = int(config.get("minimum_rooms", 8))
+    max_rooms = int(config.get("maximum_rooms", 15))
+
+    try:
+        dungeon = generate_dungeon(
+            width=width,
+            height=height,
+            min_rooms=min_rooms,
+            max_rooms=max_rooms,
+            seed=(seed + floor * 1000) if seed is not None else None,
+        )
+    except GenerationError:
+        return False
+
+    entrance = dungeon.rooms[0]
+    sx, sy = entrance.center
+
+    # Heal each member slightly between floors.
+    heal = int(config.get("heal_on_descend", 2))
+    for member in expedition.party.members:
+        member.health = min(member.max_health, member.health + heal)
+        if member.health > 0:
+            member.condition = "healthy"
+
+    expedition.dungeon = dungeon
+    expedition.party.x = sx
+    expedition.party.y = sy
+    expedition.party.current_goal = "explore"
+    expedition.knowledge = [[VOID for _ in range(width)] for _ in range(height)]
+    expedition.route = [(sx, sy)]
+    expedition.current_path = []
+    expedition.path_index = 0
+    expedition.phase = ExpeditionPhase.WAITING
+    expedition.phase_timer = 0.0
+    expedition.step_timer = 0.0
+    expedition.floor = floor
+    expedition.explored_event_ids.clear()
+    expedition.journal.append(f"The expedition descends to floor {floor}.")
+
+    entrance.discovered = True
+    entrance.visited = True
+    _reveal_room(expedition, entrance)
+    _reveal_around(expedition, sx, sy, radius=4)
+    return True
+
+
+def _should_retreat(expedition: Expedition) -> bool:
+    party = expedition.party
+    total = sum(m.health for m in party.members)
+    max_total = sum(m.max_health for m in party.members)
+    if max_total == 0:
+        return False
+    health_ratio = total / max_total
+    return health_ratio < 0.25 or party.supplies < 15 or party.torches == 0 or party.morale < 15
+
+
+def _retreat_goal(expedition: Expedition) -> Tuple[int, int]:
+    return expedition.dungeon.rooms[0].center
